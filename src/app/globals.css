@@ -1,0 +1,77 @@
+:root {
+
+  /* COLORS */
+
+  --blue: #4A69E2;
+  --yellow: #FFA52F;
+  --white: #FFF;
+  --fa--white: #FAFAFA;
+  --gray: #E7E7E3;
+  --gray-main: #70706E;
+  --dark-gray: #232321;
+
+  /* TYPOGRAPHY */
+
+  --fs-h1: 4.8rem;
+  --fs-h2: 3.6rem;
+  --fs-h3: 3.2rem;
+  --fs-h4: 2.4rem;
+  --fs-h5: 2rem;
+  --fs-h8: 1.6rem;
+  --fs-h9: 1.4rem;
+  --fs-h10: 1.2rem;
+
+  --fs-1: 4rem;
+  --fs-2: 3.6rem;
+  --fs-3: 3.2rem;
+  --fs-4: 2.4rem;
+  --fs-5: 2rem;
+  --fs-6: 1.6rem;
+  --fs-7: 1.4rem;
+  --fs-8: 1.2rem;
+  --fs-9: 1rem;
+
+  font-size:62.5%;
+  
+}
+
+/* RESET */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--gray);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+input::placeholder { font: inherit; }
+
+.wrapper{
+  max-width: 1920px;
+}
+

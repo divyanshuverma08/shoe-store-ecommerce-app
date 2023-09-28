@@ -1,0 +1,656 @@
+.footer{
+    margin: 0 18rem 0 18rem;
+    margin-bottom: 6rem;
+    background: var(--blue); 
+    border-radius: 48px; 
+}
+
+.top{
+    padding-top: 6.4rem;
+    padding-bottom: 4rem;
+    padding-left: 7.2rem;
+    padding-right: 7.2rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+}
+
+.sideBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;  
+    width: 33vw;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;    
+}
+
+.title{
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 2.8vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;   
+}
+
+.desc{
+    color: var(--gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.2vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;   
+}
+
+.email{
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;    
+}
+
+.emailInput{
+    width: max-content;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--white);
+    background-color: transparent;
+    width: 18vw;
+    height: 4.8rem;
+
+    font-family: var(--font-inter);
+    color: var(--white);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.emailInput::placeholder{
+    opacity: 0.75;
+    color: var(--gray);
+}
+
+.emailInput:focus{
+    outline: none;
+}
+
+.emailButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--dark-gray);
+    padding: 8px 24px;
+    height: 4.8rem;
+
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.right{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    position: relative;
+    width: 367px;
+    height: calc(367px * 0.31);
+}
+
+.logo img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.bottom{
+    border-radius: 48px;
+    background: var(--dark-gray);
+}
+
+.footerInfo{
+    display: flex;
+    align-items: flex-start;
+    gap: 120px;
+    padding: 5rem 5rem 0 5rem;
+}
+
+.about{
+    flex: 2;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start; 
+   gap: 8px;
+}
+
+.aboutTitle{
+    color: var(--yellow);
+    font-family: var(--font-rubik);
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.aboutDesc{
+    color: var(--gray);
+    font-family: var(--font-open-sans);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.linkContainer{
+    flex: 3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.linkBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.linkTitle{
+    color: var(--yellow);
+    font-family: var(--font-rubik);
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.link{
+    color: var(--gray);
+    font-family: var(--font-open-sans);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.linksSocial{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.linkSocial{
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.linkSocial img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.bottomLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logoContainer{
+    position: relative;
+    bottom: -6.2vw;
+    width: 74.5vw;
+    height: calc(74.5vw * 0.25);
+}
+
+.logoContainer img{
+
+    width: 100%;
+    object-fit: cover;
+
+}
+
+@media screen and (max-width: 1536px) {
+
+    .footer{
+        margin-left: 15rem;
+        margin-right: 15rem;
+    }
+
+    .top{
+        padding-top: 5.6rem;
+        padding-left: 6.4rem;
+        padding-right: 6.4rem;
+    }
+
+    .sideBox{
+        width: 32vw;
+    }
+    
+    .title{
+        font-size: 3vw;
+    }
+    
+    .desc{
+        font-size: 1.2vw;
+    }
+
+    .emailInput{
+        width: 21vw;
+        height: 4rem;
+    }
+
+    .emailButton{
+        height: 4rem;
+        padding: 8px 18px;
+    }
+
+    .logo{
+        position: relative;
+        width: 297px;
+        height: calc(297px * 0.31);
+    }
+
+    .footerInfo{
+        padding: 4rem 4rem 0 4rem;
+    }
+    
+    .about{
+       gap: 6px;
+    }
+    
+    .aboutTitle{
+        font-size: 3.6rem;
+    }
+    
+    .aboutDesc{
+        font-size: 2rem;
+    }
+    
+    .linkTitle{
+        font-size: 2.4rem;
+    }
+    
+    .link{
+        font-size: 2rem;
+    }
+    
+    
+    .logoContainer{
+        bottom: -6.2vw;
+        width: 74.5vw;
+        height: calc(74.5vw * 0.25);
+    }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .footer{
+        margin-left: 6rem;
+        margin-right: 6rem;
+    }
+
+    .top{
+        padding-top: 4.2rem;
+        padding-left: 5.8rem;
+        padding-right: 5.8rem;
+    }
+
+    .sideBox{
+        width: 38vw;
+        gap: 30px;  
+    }
+
+    .content{
+        gap: 12px;    
+    }
+    
+    .title{
+        font-size: 3.5vw;
+    }
+    
+    .desc{
+        font-size: 1.5vw;
+    }
+
+    .emailInput{
+        width: 26vw;
+    }
+
+    .logo{
+        position: relative;
+        width: 267px;
+        height: calc(267px * 0.31);
+    }
+
+    .footerInfo{
+        padding: 4rem 4rem 0 4rem;
+    }
+    
+    .about{
+       gap: 6px;
+    }
+    
+    .aboutTitle{
+        font-size: 3.2rem;
+    }
+    
+    .aboutDesc{
+        font-size: 1.6rem;
+    }
+    
+    .linkTitle{
+        font-size: 2rem;
+    }
+    
+    .link{
+        font-size: 1.6rem;
+    }
+    
+    .linkSocial{
+        width: 20px;
+        height: 20px;
+    }
+    
+    .logoContainer{
+        bottom: -7vw;
+        width: 85vw;
+        height: calc(85vw * 0.25);
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+
+    .footer{
+        margin-left: 4rem;
+        margin-right: 4rem;
+        border-radius: 36px;
+    }
+
+    .top{
+        padding-top: 4rem;
+        padding-left: 4.8rem;
+        padding-right: 4.8rem;
+    }
+
+    .sideBox{
+        width: 40vw;
+        gap: 28px;  
+    }
+
+    .content{
+        gap: 10px;    
+    }
+    
+    .title{
+        font-size: 3.8vw;
+    }
+    
+    .desc{
+        font-size: 1.6vw;
+    }
+
+    .emailInput{
+        width: 28vw;
+        height: 3.2rem;
+        font-size: 1.4rem;
+    }
+
+    .emailButton{
+        height: 3.2rem;
+        font-size: 1.2rem;
+    }
+
+    .logo{
+        position: relative;
+        width: 217px;
+        height: calc(217px * 0.31);
+    }
+
+    .bottom{
+        border-radius: 36px;
+    }
+
+    .footerInfo{
+        padding: 2.5rem 2.5rem 0 2.5rem;
+        gap: 60px;
+    }
+    
+    .about{
+       gap: 4px;
+    }
+    
+    .aboutTitle{
+        font-size: 2.8rem;
+    }
+    
+    .aboutDesc{
+        font-size: 1.2rem;
+    }
+    
+    .linkTitle{
+        font-size: 1.6rem;
+    }
+    
+    .link{
+        font-size: 1.2rem;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer{
+        margin-left: 3rem;
+        margin-right: 3rem;
+        border-radius: 32px;
+    }
+
+    .top{
+        padding-top: 3.2rem;
+        padding-left: 3.2rem;
+        padding-right: 3.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .left{
+        flex: none;
+    }
+
+    .right{
+        flex: none;
+    }
+
+    .sideBox{
+        width: 100%;
+        gap: 26px;  
+    }
+
+    .content{
+        gap: 8px;    
+    }
+    
+    .title{
+        font-size: 7vw;
+    }
+    
+    .desc{
+        font-size: 4vw;
+    }
+
+    .email{
+        width: 100%;
+    }
+
+    .emailInput{
+        flex-grow: 1;
+        height: 4rem;
+        font-size: 1.6rem;
+        padding: 8px 16px;
+    }
+
+    .emailButton{
+        height: 4rem;
+        font-size: 1.4rem;
+    }
+
+    .logo{
+        position: relative;
+        width: 257px;
+        height: calc(257px * 0.31);
+    }
+
+    .bottom{
+        border-radius: 32px;
+    }
+
+    .footerInfo{
+        padding: 2.4rem 1.6rem 0 1.6rem;
+        gap: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .aboutTitle{
+        font-size: 2.8rem;
+    }
+    
+    .aboutDesc{
+        font-size: 2rem;
+    }
+
+    .linkContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: left;
+        gap: 24px;
+    }
+    
+    .linkTitle{
+        font-size: 2.4rem;
+    }
+    
+    .link{
+        font-size: 2rem;
+    }
+    
+    .linkSocial{
+        width: 26px;
+        height: 26px;
+    }
+    
+    .logoContainer{
+        bottom: -7.2vw;
+        width: 88vw;
+        height: calc(88vw * 0.25);
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+
+    .footer{
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+        border-radius: 24px;
+    }
+
+    .top{
+        padding-top: 1.6rem;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sideBox{
+        gap: 24px;  
+    }
+    
+    .title{
+        font-size: 7.2vw;
+    }
+    
+    .desc{
+        font-size: 4.25vw;
+    }
+
+    .emailButton{
+        padding: 8px 16px;
+    }
+
+    .logo{
+        position: relative;
+        width: 50vw;
+        height: calc(50vw * 0.31);
+    }
+
+    .bottom{
+        border-radius: 24px;
+    }
+    
+    .aboutTitle{
+        font-size: 2.4rem;
+    }
+    
+    .aboutDesc{
+        font-size: 1.6rem;
+    }
+
+    .linkContainer{
+        gap: 16px;
+    }
+    
+    .linkTitle{
+        font-size: 2rem;
+    }
+    
+    .link{
+        font-size: 1.6rem;
+    }
+    
+    .linkSocial{
+        width: 24px;
+        height: 24px;
+    }
+    
+    .logoContainer{
+        bottom: -7.2vw;
+        width: 88vw;
+        height: calc(88vw * 0.25);
+    }
+
+}

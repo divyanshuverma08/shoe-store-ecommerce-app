@@ -1,0 +1,426 @@
+.hero{
+    padding: 2.4rem 18rem 9rem 18rem;
+    text-align: center;
+}
+
+.titleContainer{
+    text-align:justify;
+}
+
+.titleSpan{
+    width: 100%;
+    height: 0;
+    display: inline-block;
+}
+
+.title, 
+.titleRight{
+
+    font-family: var(--font-rubik);
+    color: var(--dark-gray);
+    font-size: clamp(1rem, 13vw, 26.6rem);
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;    
+}
+
+.titleRight{
+    color: var(--blue);
+}
+
+.main{
+    position: relative;
+}
+
+.sideBar{
+    z-index: 10;
+    position: absolute;
+    top: 10%;
+    width: max-content;
+    transform: rotate(-90deg) translate(-100%, 0);
+    transform-origin: top left;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 0px 16px 16px;
+    background: var(--dark-gray);
+}
+
+.sideBar p{
+    font-family: var(--font-rubik);
+    color: var(--gray);
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.product{
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 30vw;
+}
+
+.product h2{
+    font-family: var(--font-rubik);
+    color: var(--white);
+    font-size: clamp(1rem,4.4vw,10.6rem);
+    font-style: normal;
+    font-weight: 600;  
+}
+
+.product p{
+    color: var(--gray);
+    font-family: var(--font-open-sans);
+    font-size: clamp(1rem,1.6vw,4rem);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.product button{
+    margin-top: 24px;
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--blue);
+    width: max-content;
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.imageContainer{
+    z-index: -10;
+    position: relative;
+    aspect-ratio: 7/4;
+}
+
+.image{
+    border-radius: 32px;
+    object-fit: cover;
+}
+
+.boxImages{
+    z-index: 1;
+    position: absolute;
+    right: 32px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.boxImageContaner{
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 160px;
+}
+
+.boxImage{
+    border-radius: 32px;
+    border: 3px solid var(--gray);
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1536px) {
+
+    .hero{
+        padding: 2.4rem 15rem 5rem 15rem;
+    }    
+
+    .title, 
+    .titleRight{
+        font-size: clamp(1rem, 13.1vw, 21rem);
+    }
+
+    .sideBar{
+        padding: 18px;
+    }
+
+    .product{
+        max-width: 30vw;
+        bottom: 30px;
+    }
+
+    .product h2{
+        font-size: 4vw;
+    }
+
+    .product p{
+        font-size: 1.35vw
+    }
+
+    .product button{
+        font-size: 1.4rem;
+    }
+
+    .boxImages{
+        bottom: 30px;
+    }
+
+    .boxImageContaner{
+        width: 120px;
+    }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .hero{
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }    
+
+    .title, 
+    .titleRight{
+        font-size: clamp(1rem, 15.1vw, 19.5rem);
+    }
+
+    .product{
+        max-width: 32vw;
+        bottom: 30px;
+    }
+
+    .product h2{
+        font-size: 4.7vw;
+    }
+
+    .product p{
+        font-size: 1.6vw
+    }
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .hero{
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }    
+
+    .title, 
+    .titleRight{
+        font-size: clamp(1rem, 15.34vw, 16rem);
+    }
+
+    .sideBar{
+        padding: 14px;
+        border-radius: 0px 0px 12px 12px;
+    }
+
+    .sideBar p{
+        font-size: 1.2vw;
+    }
+
+    .product{
+        max-width: 32vw;
+        bottom: 30px;
+    }
+
+    .product h2{
+        font-size: 4.8vw;
+    }
+
+    .product p{
+        font-size: 1.65vw
+    }
+
+    .product button{
+        margin-top: 12px;
+        font-size: 1.2rem;
+        padding: 8px 16px;
+        border-radius: 6px;
+    }
+
+    .boxImages{
+        bottom: 30px;
+        gap: 16px;
+    }
+
+    .boxImageContaner{
+        width: 80px;
+    }
+
+    .boxImage{
+        border-radius: 16px;
+    }
+
+    .image{
+        border-radius: 24px;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .hero{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 1.6rem;
+        padding-bottom: 2rem;
+    }   
+
+    .title, 
+    .titleRight{
+        font-size: clamp(1rem, 15.3vw, 12rem);
+    }
+
+    
+    .sideBar{
+        padding: 14px;
+        border-radius: 0px 0px 12px 12px;
+    }
+
+    .sideBar p{
+        font-size: 2.8vw;
+    }
+
+    .product{
+        max-width: 50vw;
+        bottom: 20px;
+        left: 16px;
+    }
+
+    .product h2{
+        font-size: 6.4vw;
+    }
+
+    .product p{
+        font-size: 3.6vw
+    }
+
+    .product button{
+        margin-top: 12px;
+        font-size: 1.4rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    .imageContainer{
+        aspect-ratio: 179/191;
+    }
+
+    .boxImages{
+        bottom: 20px;
+        right: 16px;
+        gap: 16px;
+    }
+
+    .boxImageContaner{
+        width: 92px;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .hero{
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        padding-top: 0.6rem;
+        padding-bottom: 1.6rem;
+    }   
+
+    .title, 
+    .titleRight{
+        font-size: clamp(1rem, 15.25vw, 9rem);
+    }
+
+    .sideBar{
+        padding: 8px;
+        border-radius: 0px 0px 12px 12px;
+    }
+
+    .product{
+        max-width: 50vw;
+        bottom: 20px;
+        left: 16px;
+    }
+
+    .product h2{
+        font-size: 6.2vw;
+    }
+
+    .product p{
+        font-size: 3.4vw
+    }
+
+    .product button{
+        margin-top: 12px;
+        font-size: 1.4rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    .imageContainer{
+        aspect-ratio: 179/191;
+    }
+
+    .boxImages{
+        bottom: 20px;
+        gap: 8px;
+    }
+
+    .boxImageContaner{
+        width: 82px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+
+    .sideBar{
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    .product{
+        max-width: 50vw;
+        bottom: 16px;
+    }
+
+    .product h2{
+        font-size: 6.5vw;
+    }
+
+    .product p{
+        font-size: 3.6vw
+    }
+
+    .product button{
+        margin-top: 8px;
+        font-size: 1.2rem;
+        padding: 6px 14px;
+        border-radius: 6px;
+    }
+
+    .imageContainer{
+        aspect-ratio: 179/191;
+    }
+
+    .boxImages{
+        bottom: 16px;
+        gap: 4px;
+    }
+
+    .boxImage{
+        border-radius: 8px;
+        border-width: 1px;
+    }
+
+    .boxImageContaner{
+        width: 16vw;
+    }
+    
+}
