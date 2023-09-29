@@ -13,13 +13,9 @@ export default function HeroImages() {
   const [imagePos, setImagePos] = useState([0, 1, 2]);
 
   const [image, setImage] = useState({
-    image1: <Image className={styles.image} src={images[0]} fill alt="show" />,
-    image2: (
-      <Image className={styles.boxImage} src={images[1]} fill alt="show" />
-    ),
-    image3: (
-      <Image className={styles.boxImage} src={images[2]} fill alt="show" />
-    ),
+    image1: images[imagePos[0]],
+    image2: images[imagePos[1]],
+    image3: images[imagePos[2]],
   });
 
   function changeImage(i, j) {
@@ -30,34 +26,29 @@ export default function HeroImages() {
     setImagePos(arr);
 
     setImage({
-      image1: (
-        <Image className={styles.image} src={images[imagePos[0]]} fill alt="show" />
-      ),
-      image2: (
-        <Image className={styles.boxImage} src={images[imagePos[1]]} fill alt="show" />
-      ),
-      image3: (
-        <Image className={styles.boxImage} src={images[imagePos[2]]} fill alt="show" />
-      ),
+      image1: images[imagePos[0]],
+      image2: images[imagePos[1]],
+      image3: images[imagePos[2]],
     });
-
   }
 
   return (
     <>
-      <div className={styles.imageContainer}>{image["image1"]}</div>
+      <div className={styles.imageContainer}>
+        <Image className={styles.image} src={image["image1"]} fill alt="show" />
+      </div>
       <div className={styles.boxImages}>
         <div
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 1)}
         >
-          {image["image2"]}
+          <Image className={styles.boxImage} src={image["image2"]} fill alt="show" />
         </div>
         <div
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 2)}
         >
-          {image["image3"]}
+          <Image className={styles.boxImage} src={image["image3"]} fill alt="show" />
         </div>
       </div>
     </>
