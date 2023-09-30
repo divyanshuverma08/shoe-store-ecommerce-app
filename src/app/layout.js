@@ -1,4 +1,5 @@
 import "./globals.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Rubik, Open_Sans, Inter } from "next/font/google";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";

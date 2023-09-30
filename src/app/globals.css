@@ -9,6 +9,8 @@
   --gray: #E7E7E3;
   --gray-main: #70706E;
   --dark-gray: #232321;
+  --neutrals-gray-2: #D2D1D3;
+  --neutrals-gray-5: #8F8C91;
 
   /* TYPOGRAPHY */
 
@@ -77,3 +79,95 @@ input::placeholder { font: inherit; }
   max-width: 1920px;
 }
 
+.green{
+  background-color: #234D41;
+}
+
+.blue{
+  background-color: #4A69E2;
+}
+
+.yellow{
+  background-color: #FFA52F;
+}
+
+.balck{
+  background-color: #232321;
+}
+
+.jet{
+  background-color: #353336;
+}
+
+.orange{
+  background-color: #F08155;
+}
+
+.gray{
+  background-color: #C9CCC6;
+}
+
+.metal{
+  background-color: #677282;
+}
+
+.brown{
+  background-color: #925513;
+}
+
+.wood{
+  background-color: #BB8056;
+}
+
+
+/* CAROUSEL */
+
+
+.carousel-root .carousel .thumbs-wrapper{
+  margin: 0;
+  margin-top: 24px;
+}
+
+.carousel-root .carousel .thumbs-wrapper .thumb{
+  width: 86px !important;
+  height: 86px;
+  border: 0;
+  border-radius: 8px;
+}
+
+.carousel-root .carousel .thumbs-wrapper .thumb img{
+  border-radius: 8px;
+}
+
+.carousel-root .carousel.carousel-slider .control-dots .dot{
+  background: var(--dark-gray);
+  opacity: 0.4;
+  box-shadow: none;
+}
+
+.carousel-root .carousel.carousel-slider .control-dots .dot.dot.selected{
+  background: var(--blue);
+  opacity: 1;
+}
+
+.carousel-root .carousel.carousel-slider .slider-wrapper ul li img{
+  border-radius: 16px;
+}
+
+@media screen and (max-width: 568px){
+  .carousel-root .carousel .thumbs-wrapper .thumb{
+    width: 72px !important;
+    height: 72px;
+    border: 0;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .carousel-root .carousel .thumbs-wrapper .thumb{
+    width: 64px !important;
+    height: 64px;
+    border: 0;
+    border-radius: 8px;
+  }
+}
