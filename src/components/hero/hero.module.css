@@ -1,5 +1,5 @@
 .hero{
-    padding: 2.4rem 18rem 9rem 18rem;
+    padding: 24px 180px 90px 180px;
     text-align: center;
 }
 
@@ -135,7 +135,7 @@
 @media screen and (max-width: 1536px) {
 
     .hero{
-        padding: 2.4rem 15rem 5rem 15rem;
+        padding: 24px 150px 50px 150px;
     }    
 
     .title, 
@@ -177,8 +177,8 @@
 @media screen and (max-width: 1280px) {
 
     .hero{
-        padding-left: 6rem;
-        padding-right: 6rem;
+        padding-left: 60px;
+        padding-right: 60px;
     }    
 
     .title, 
@@ -204,10 +204,10 @@
 @media screen and (max-width: 1024px){
 
     .hero{
-        padding-left: 4rem;
-        padding-right: 4rem;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 20px;
+        padding-bottom: 30px;
     }    
 
     .title, 
@@ -266,10 +266,10 @@
 @media screen and (max-width: 768px){
 
     .hero{
-        padding-left: 3rem;
-        padding-right: 3rem;
-        padding-top: 1.6rem;
-        padding-bottom: 2rem;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 16px;
+        padding-bottom: 20px;
     }   
 
     .title, 
@@ -327,10 +327,10 @@
 @media screen and (max-width: 568px){
 
     .hero{
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-        padding-top: 0.6rem;
-        padding-bottom: 1.6rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 6px;
+        padding-bottom: 16px;
     }   
 
     .title, 

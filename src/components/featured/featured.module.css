@@ -1,5 +1,5 @@
 .featured{
-    padding: 1rem 18rem 9rem 18rem;
+    padding: 10px 180px 90px 180px;
 }
 
 .header{
@@ -11,7 +11,7 @@
     text-align: left;
     color: var(--dark-gray);
     font-family: var(--font-rubik);
-    font-size: 5.4rem;
+    font-size: 8rem;
     font-style: normal;
     font-weight: 600;
     line-height: 8rem;
@@ -51,11 +51,11 @@
 @media screen and (max-width: 1536px) {
 
     .featured{
-        padding: 0 15rem 9rem 15rem;
+        padding: 0 150px 90px 150px;
     }    
 
     .headerLeft{
-        font-size: 4.6rem;
+        font-size: 6.8rem;
         line-height: 6.4rem;
     }
 
@@ -69,13 +69,13 @@
 @media screen and (max-width: 1280px) {
 
     .featured{
-        padding-left: 6rem;
-        padding-right: 6rem;
-        padding-bottom: 8rem;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 80px;
     }    
 
     .headerLeft{
-        font-size: 3.8rem;
+        font-size: 5.6rem;
         line-height: 5.8rem;
     }
 
@@ -89,14 +89,14 @@
 @media screen and (max-width: 1024px){
 
     .featured{
-        padding-left: 4rem;
-        padding-right: 4rem;
-        padding-top: 2rem;
-        padding-bottom: 6rem;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 20px;
+        padding-bottom: 60px;
     }   
 
     .headerLeft{
-        font-size: 3rem;
+        font-size: 4.6rem;
         line-height: 4.6rem;
     }
 
@@ -110,14 +110,14 @@
 @media screen and (max-width: 768px){
 
     .featured{
-        padding-left: 3rem;
-        padding-right: 3rem;
-        padding-top: 1.6rem;
-        padding-bottom: 4rem;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 16px;
+        padding-bottom: 40px;
     }   
 
     .headerLeft{
-        font-size: 2.4rem;
+        font-size: 3.8rem;
         line-height: 4rem;
     }
 
@@ -140,14 +140,14 @@
 @media screen and (max-width: 568px){
 
     .featured{
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-        padding-top: 0.6rem;
-        padding-bottom: 2rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 6px;
+        padding-bottom: 20px;
     }   
 
     .headerLeft{
-        font-size: 2rem;
+        font-size: 3rem;
         line-height: 3.4rem;
     }
 
@@ -160,7 +160,7 @@
 @media screen and (max-width: 480px){
 
     .headerLeft{
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         line-height: 2.8rem;
     }
 

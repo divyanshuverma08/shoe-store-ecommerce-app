@@ -23,7 +23,7 @@ export default function Navbar() {
       </div>
       <div className={styles.logoContainer}>
         <div className={styles.logo}>
-          <Image src="./logo.svg" fill alt="logo" />
+          <Image src="/logo.svg" fill alt="logo" />
         </div>
       </div>
       <div className={styles.action}>

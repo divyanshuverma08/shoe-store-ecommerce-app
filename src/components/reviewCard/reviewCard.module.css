@@ -6,7 +6,7 @@
 }
 
 .header{
-    padding: 3.2rem;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -186,7 +186,7 @@
 
     .header{
         gap: 6px;
-        padding: 1.6rem;
+        padding: 16px;
         border-radius: 16px 16px 0px 0px;
     }
 
@@ -231,16 +231,16 @@
 @media screen and (max-width: 768px){
 
     .reviewCard{
-        width: calc(100vw - 6rem);
+        width: calc(100vw - 60px);
     }
 
     .reviewImage{
-        height: calc( (100vw - 6rem ) * 0.7);
+        height: calc( (100vw - 60px ) * 0.7);
     }
 
     .header{
         gap: 10px;
-        padding: 2rem;
+        padding: 20px;
         border-radius: 20px 20px 0px 0px;
     }
 
@@ -285,16 +285,16 @@
 @media screen and (max-width: 568px){
 
     .reviewCard{
-        width: calc(100vw - 3.2rem);
+        width: calc(100vw - 32px);
     }
 
     .reviewImage{
-        height: calc( (100vw - 3.2rem ) * 0.7);
+        height: calc( (100vw - 32px ) * 0.7);
     }
 
     .header{
         gap: 8px;
-        padding: 1.6rem;
+        padding: 16px;
         border-radius: 16px 16px 0px 0px;
     }
 

@@ -30,9 +30,6 @@
   --fs-7: 1.4rem;
   --fs-8: 1.2rem;
   --fs-9: 1rem;
-
-  font-size:62.5%;
-  
 }
 
 /* RESET */
@@ -41,6 +38,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font: inherit;
+}
+
+html{
+  font-size:62.5%;
 }
 
 html,
