@@ -47,7 +47,6 @@ html{
   font-size:62.5%;
 }
 
-html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -91,7 +90,7 @@ input::placeholder { font: inherit; }
   background-color: #FFA52F;
 }
 
-.balck{
+.black{
   background-color: #232321;
 }
 
@@ -170,4 +169,20 @@ input::placeholder { font: inherit; }
     border: 0;
     border-radius: 8px;
   }
+}
+
+/* SLIDER */
+
+.css-eg0mwd-MuiSlider-thumb{
+  color: var(--blue);
+}
+
+.css-14pt78w-MuiSlider-rail{
+  color: #000;
+  opacity: 1;
+}
+
+.stopScroll{
+  overflow-y: hidden;
+  height: 100%;
 }

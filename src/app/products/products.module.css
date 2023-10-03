@@ -1,0 +1,1192 @@
+.products{
+    padding: 64px 180px 90px 180px;
+}
+
+.header{
+    position: relative;
+    height: 24vw;
+}
+
+.headerContent{
+    z-index: 1;
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    left: 40px;
+    top: 30%;
+    width: 49rem;
+}
+
+.headerContent p{
+    color: var(--gray);
+    font-family: var(--font-open-sans);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.headerContent h2{
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 7.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.headerContent p:last-child{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.headerImg{
+    z-index: 0;
+    border-radius: 48px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.titleBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.titleFilter{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    padding: 16px;
+    width: 184px;
+    background: #F4F2F2;
+}
+
+.titleFilter img{
+    width: 16px;
+    height: 16px;
+}
+
+.title{
+    color: var(--dark-gray);
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+}
+
+.title h3{
+    font-family: var(--font-rubik);
+    font-size: 3.8rem;
+}
+
+.title p{
+    font-family: var(--font-open-sans);
+    font-size: 1.8rem;
+    opacity: 0.8;
+}
+
+.sortBy{
+    position: relative;
+}
+
+.sortByCotainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    padding: 16px;
+    width: 184px;
+    background: #F4F2F2;
+}
+
+.borderChange{
+    border-radius: 16px 16px 0 0;
+}
+
+.titleFilter p,
+.sortByCotainer p,
+.sortByDropDown p
+{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sortByCotainer img{
+    cursor: pointer;
+}
+
+.sortByDropDown{
+    z-index: 1000;
+    position: absolute;
+    bottom: -140px;
+    width: 184px;
+    height: 140px;
+    padding: 16px;
+    background: #F4F2F2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 0 0 16px 16px;
+}
+
+.closeDropDown{
+    display: none;
+}
+
+.main{
+    display: flex;
+    gap: 20px;
+}
+
+.filtersContainer{
+    flex: 1;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.filters h4{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.filterOption{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.optionHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.optionHeader h5{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.optionHeader img{
+    transition: 0.1s;
+}
+
+.refineBySelection{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--blue);
+}
+
+.refineBySelection p{
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.optionWrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.box{
+    width: 48px;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.size{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--dark-gray);
+    background-color: var(--white);
+
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.selectedSize{    
+    color: var(--white);
+    background: var(--dark-gray);
+}
+
+.unavailableSize{    
+    color: var(--neutrals-gray-5);
+    background: var(--neutrals-gray-2);
+}
+
+.optionList{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkBox{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.checkBox label{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.checkBox input{
+    width: 20px;
+    height: 20px;
+    border-color: var(--neutrals-gray-2);
+}
+
+.rangeValue{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rangeValue span{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    opacity: 0.8;
+}
+
+.filtersMobileButtons{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 16px 24px 16px;
+}
+
+.mButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--dark-gray);
+
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+}
+
+.mButton:last-child{
+    color: var(--white);
+    background-color: var(--dark-gray);
+}
+
+.productsContainer{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 38px;
+    justify-content: space-between;
+}
+
+.pagination{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 8px 16px;
+   gap: 4px;
+   height: 32px;
+   border-radius: 8px;
+   border: 1px solid var(--dark-gray);
+}
+
+.btn.selected{
+    background: var(--dark-gray);
+    border: none;
+}
+
+.btn.selected span{
+    color: var(--white);
+}
+
+.pagination span{
+    color: var(--dark-gray);
+    font-family: var(--font-inter);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.left{
+    transform: rotate(90deg);
+}
+
+.right{
+    transform: rotate(-90deg);
+}
+
+.display{
+    display: flex;
+    animation: fadeIn 0.1s ease-in both;
+}
+
+.hide{
+    display: none;
+}
+
+.rotateDown{
+    transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@media screen and (max-width: 1536px) {
+
+    .products{
+        padding: 32px 150px 90px 150px;
+    }   
+
+    .header{
+        height: 26vw;
+    }
+
+    .headerContent{
+        gap: 8px;
+        left: 40px;
+        top: 27%;
+        width: 42rem;
+    }
+
+    .headerContent p{
+        font-size: 2rem;
+    }
+
+    .headerContent h2{
+        font-size: 7rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1.8rem;
+    }
+
+    .headerImg{
+        border-radius: 48px;
+    }
+
+    .title h3{
+        font-size: 3.6rem;
+    }
+    
+    .title p{
+        font-size: 1.6rem;
+    }
+
+    .filters h4{
+        font-size: 2.4rem;
+    }
+
+    .optionHeader h5{
+        font-size: 1.6rem;
+    }
+
+    .refineBySelection p{
+        font-size: 1.2rem;
+    }
+
+    .size{
+        font-size: 1.4rem;
+    }
+
+    .checkBox label{
+        font-size: 1.6rem;
+    }
+    
+    .checkBox input{
+        width: 20px;
+        height: 20px;
+    }
+
+    .rangeValue span{
+        font-size: 1.4rem;
+    }
+
+    .items{
+        gap: 25px;
+    }
+     
+    .pagination span{
+         font-size: 1.4rem;
+     }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .products{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 28px;
+        padding-bottom: 80px;
+    } 
+    
+    .header{
+        height: 25vw;
+    }
+
+    .headerContent{
+        gap: 6px;
+        left: 30px;
+        top: 25%;
+        width: 35rem;
+    }
+
+    .headerContent p{
+        font-size: 1.6rem;
+    }
+
+    .headerContent h2{
+        font-size: 5.6rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1.4rem;
+    }
+
+    .headerImg{
+        border-radius: 36px;
+    }
+
+    .title h3{
+        font-size: 3.2rem;
+    }
+    
+    .title p{
+        font-size: 1.4rem;
+    }
+
+    .sortByCotainer{
+        border-radius: 12px;
+        padding: 12px;
+        width: 150px;
+    }
+    
+    .borderChange{
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .sortByCotainer p,
+    .sortByDropDown p
+    {
+        font-size: 1.4rem;
+    }
+    
+    .sortByCotainer img{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    
+    .sortByDropDown{
+        bottom: -120px;
+        width: 150px;
+        height: 120px;
+        padding: 12px;
+        gap: 14px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .main{
+        gap: 20px;
+    }
+    
+    .filters{
+        gap: 20px;
+    }
+
+    .filterOption{
+        gap: 14px;
+    }
+    
+    .filters h4{
+        font-size: 2rem;
+    }
+
+    .optionHeader h5{
+        font-size: 1.4rem;
+    }
+
+    .optionHeader img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .optionWrap{
+        gap: 14px;
+    }
+
+    .refineBySelection p{
+        font-size: 1rem;
+    }
+
+    .optionList{
+        gap: 6px;
+    }
+
+    .checkBox{
+        gap: 14px;
+    }
+
+    .checkBox label{
+        font-size: 1.4rem;
+    }
+    
+    .checkBox input{
+        width: 18px;
+        height: 18px;
+    }
+
+    .rangeValue span{
+        font-size: 1.4rem;
+    }
+
+    .items{
+        gap: 20px;
+    }
+
+    .productsContainer{
+        gap: 48px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .products{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+    }   
+
+    .header{
+        height: 30vw;
+    }
+
+    .headerContent{
+        gap: 4px;
+        left: 20px;
+        top: 25%;
+        width: 28rem;
+    }
+
+    .headerContent p{
+        font-size: 1.4rem;
+    }
+
+    .headerContent h2{
+        font-size: 4.4rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1.2rem;
+    }
+
+    .headerImg{
+        border-radius: 32px;
+    }
+
+    .titleBar{
+        margin: 16px 0;
+    }
+
+    .title h3{
+        font-size: 2.4rem;
+    }
+    
+    .title p{
+        font-size: 1.2rem;
+    }
+
+    .sortByCotainer{
+        border-radius: 8px;
+        padding: 10px;
+        width: 120px;
+    }
+    
+    .borderChange{
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .sortByCotainer p,
+    .sortByDropDown p
+    {
+        font-size: 1.2rem;
+    }
+    
+    .sortByCotainer img{
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+    
+    .sortByDropDown{
+        bottom: -100px;
+        width: 120px;
+        height: 100px;
+        padding: 10px;
+        gap: 12px;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .main{
+        gap: 16px;
+    }
+    
+    .filters{
+        gap: 16px;
+    }
+
+    .filterOption{
+        gap: 14px;
+    }
+
+    .filters h4{
+        font-size: 1.6rem;
+    }
+
+    .optionHeader h5{
+        font-size: 1.2rem;
+    }
+
+    .optionHeader img{
+        width: 16px;
+        height: 16px;
+    }
+
+    .optionWrap{
+        gap: 10px;
+    }
+
+    .refineBySelection{
+        border-radius: 8px;
+        padding: 8px 12px;
+    }
+
+    .refineBySelection p{
+        font-size: 1rem;
+    }
+
+    .checkBox{
+        gap: 12px;
+    }
+
+    .checkBox label{
+        font-size: 1.2rem;
+    }
+    
+    .checkBox input{
+        width: 16px;
+        height: 16px;
+    }
+
+    .rangeValue span{
+        font-size: 1.2rem;
+    }
+
+    .items{
+        gap: 12px;
+    }
+
+    .productsContainer{
+        gap: 32px;
+    }
+
+    .pagination{
+        gap: 12px;
+    }
+    
+    .btn{
+       padding: 6px 14px;
+       gap: 4px;
+       height: 38px;
+       border-radius: 6px;
+    }
+    
+    .pagination span{
+        font-size: 1.2rem;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .products{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 36px;
+        padding-bottom: 40px;
+    }  
+
+    .header{
+        height: 40vw;
+    }
+
+    .headerContent{
+        gap: 6px;
+        left: 24px;
+        top: 27%;
+        width: 28rem;
+    }
+
+    .headerContent p{
+        font-size: 1.6rem;
+    }
+
+    .headerContent h2{
+        font-size: 2.8rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1.4rem;
+    }
+
+    .headerImg{
+        border-radius: 24px;
+    }
+
+    .titleBar{
+        margin: 32px 0;
+    }
+
+    .titleBar .title{
+        display: none;
+    }
+
+    .titleFilter{
+        display: flex;
+        width: 42vw;
+        border-radius: 12px;
+    }
+
+    .sortByCotainer{
+        width: 42vw;
+        border-radius: 12px;
+        padding: 16px;
+    }
+
+    .borderChange{
+        border-radius: 12px 12px 0 0;
+    }
+
+    .sortByDropDown{
+        bottom: -140px;
+        width: 42vw;
+        height: 140px;
+        padding: 16px;
+        gap: 16px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .titleFilter p,
+    .sortByCotainer p,
+    .sortByDropDown p
+    {
+        font-size: 1.8rem;
+    }
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .filtersContainer{
+        display: none;
+    }
+
+    .filters{
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .filterOption{
+        gap: 14px;
+    }
+
+    .filters h4{
+        display: none;
+    }
+
+    .optionHeader h5{
+        font-size: 2rem;
+    }
+
+    .optionHeader img{
+        width: 28px;
+        height: 28px;
+    }
+
+    .optionWrap{
+        gap: 16px;
+    }
+
+    .refineBySelection{
+        border-radius: 12px;
+        padding: 12px 16px;
+    }
+
+    .refineBySelection p{
+        font-size: 1.6rem;
+    }
+
+    .checkBox{
+        gap: 16px;
+    }
+
+    .checkBox label{
+        font-size: 2rem;
+    }
+    
+    .checkBox input{
+        width: 20px;
+        height: 20px;
+    }
+
+    .rangeValue span{
+        font-size: 1.6rem;
+    }
+
+    .filtersMobileButtons{
+        display: flex;
+    }
+
+    .mButton{
+        height: 40px;
+        width: 45vw;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 1.6rem;
+    }
+
+    .items{
+        gap: 8px;
+    }
+
+    .productsContainer{
+        flex: 1;
+        gap: 32px;
+    }
+    
+    .btn{
+       padding: 6px 14px;
+       gap: 4px;
+       height: 38px;
+       border-radius: 6px;
+    }
+    
+    .pagination button:first-child span,
+    .pagination button:last-child span
+    {
+        display: none;
+    }
+
+    .pagination span{
+        font-size: 1.8rem;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .products{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }   
+
+    .headerContent{
+        gap: 4px;
+        left: 20px;
+        top: 25%;
+        width: 26rem;
+    }
+
+    .headerContent p{
+        font-size: 1.4rem;
+    }
+
+    .headerContent h2{
+        font-size: 2.4rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1.2rem;
+    }
+
+    .headerImg{
+        border-radius: 20px;
+    }
+
+    .titleBar{
+        margin: 28px 0;
+    }
+
+    .titleFilter{
+        display: flex;
+        width: 45vw;
+        border-radius: 10px;
+    }
+
+    .sortByCotainer{
+        width: 45vw;
+        border-radius: 10px;
+        padding: 16px;
+    }
+
+    .borderChange{
+        border-radius: 10px 10px 0 0;
+    }
+
+    .sortByDropDown{
+        bottom: -120px;
+        width: 45vw;
+        height: 120px;
+        padding: 16px;
+        gap: 16px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .titleFilter p,
+    .sortByCotainer p,
+    .sortByDropDown p
+    {
+        font-size: 1.6rem;
+    }
+
+    .optionHeader h5{
+        font-size: 1.8rem;
+    }
+
+    .optionHeader img{
+        width: 26px;
+        height: 26px;
+    }
+
+    .refineBySelection p{
+        font-size: 1.4rem;
+    }
+
+    .checkBox label{
+        font-size: 1.8rem;
+    }
+
+    .rangeValue span{
+        font-size: 1.4rem;
+    }
+
+    .filtersMobileButtons{
+        display: flex;
+    }
+
+    .mButton{
+        height: 40px;
+        width: 45vw;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 1.4rem;
+    }
+
+    .productsContainer{
+        gap: 28px;
+    }
+    
+    .btn{
+       padding: 8px 16px;
+       height: 34px;
+       border-radius: 8px;
+    }
+
+    .pagination span{
+        font-size: 1.6rem;
+    }
+
+
+}
+
+@media screen and (max-width: 480px){
+
+    .headerContent{
+        gap: 2px;
+        left: 16px;
+        top: 22%;
+        width: 22rem;
+    }
+
+    .headerContent p{
+        font-size: 1.2rem;
+    }
+
+    .headerContent h2{
+        font-size: 2rem;
+    }
+
+    .headerContent p:last-child{
+        font-size: 1rem;
+    }
+
+    .headerImg{
+        border-radius: 16px;
+    }
+
+    .titleBar{
+        margin: 24px 0;
+    }
+
+    .titleFilter{
+        display: flex;
+        width: 43vw;
+        border-radius: 8px;
+        padding: 12px 16px;
+    }
+
+    .sortByCotainer{
+        width: 43vw;
+        border-radius: 8px;
+        padding: 12px 16px;
+    }
+
+    .borderChange{
+        border-radius: 8px 8px 0 0;
+    }
+
+    .sortByDropDown{
+        bottom: -110px;
+        width: 42vw;
+        height: 110px;
+        padding: 16px;
+        gap: 16px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .titleFilter p,
+    .sortByCotainer p,
+    .sortByDropDown p
+    {
+        font-size: 1.4rem;
+    }
+
+    .optionHeader h5{
+        font-size: 1.6rem;
+    }
+
+    .optionHeader img{
+        width: 24px;
+        height: 24px;
+    }
+
+    .refineBySelection p{
+        font-size: 1.2rem;
+    }
+
+    .checkBox label{
+        font-size: 1.6rem;
+    }
+
+    .mButton{
+        width: 42vw;
+        font-size: 1.2rem;
+    }
+
+    .productsContainer{
+        gap: 24px;
+    }
+
+    .items{
+        gap: 6px;
+    }
+    
+    .btn{
+       height: 32px;
+    }
+
+    .pagination{
+        gap: 6px;
+    }
+
+    .pagination span{
+        font-size: 1.4rem;
+    }
+
+}

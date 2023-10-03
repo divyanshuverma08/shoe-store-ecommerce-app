@@ -405,11 +405,11 @@
     }
     
     .name{
-        font-size: 3.2rem;
+        font-size: 3.6rem;
     }
 
     .price{
-        font-size: 2.6rem;
+        font-size: 3rem;
     }
 
     .productColor{
@@ -417,7 +417,7 @@
     }
     
     .productColorTitle{
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 
     .productSize{
@@ -425,15 +425,15 @@
     }
 
     .productSizeTitle{
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 
     .size{
-        width: 46px;
-        height: 46px;
+        width: 54px;
+        height: 54px;
         padding: 8px 16px;
         border-radius: 6px;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .productBuy{
@@ -441,14 +441,14 @@
     }
 
     .addToCart{
-        height: 50px;
+        height: 54px;
         padding: 8px 16px;
         border-radius: 8px;
         font-size: 1.6rem;
     }
 
     .buyNow{
-        height: 50px;
+        height: 54px;
         padding: 8px 16px;
         border-radius: 8px;
         font-size: 1.6rem;
@@ -459,11 +459,11 @@
     }
 
     .productAboutTitle{
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
     
     .productAboutContent{
-        font-size: 2rem;
+        font-size: 2.4rem;
         gap: 20px;
     }
     
@@ -489,11 +489,11 @@
     }
     
     .name{
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
 
     .price{
-        font-size: 2.4rem;
+        font-size: 2.6rem;
     }
 
     .productColor{
@@ -501,7 +501,7 @@
     }
     
     .productColorTitle{
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .productSize{
@@ -509,12 +509,12 @@
     }
 
     .productSizeTitle{
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .size{
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
         padding: 8px 16px;
         border-radius: 6px;
         font-size: 1.4rem;
@@ -525,14 +525,14 @@
     }
 
     .addToCart{
-        height: 48px;
+        height: 50px;
         padding: 8px 16px;
         border-radius: 8px;
         font-size: 1.4rem;
     }
 
     .buyNow{
-        height: 48px;
+        height: 50px;
         padding: 8px 16px;
         border-radius: 8px;
         font-size: 1.4rem;
@@ -543,11 +543,11 @@
     }
 
     .productAboutTitle{
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .productAboutContent{
-        font-size: 1.8rem;
+        font-size: 2rem;
         gap: 16px;
     }
 
