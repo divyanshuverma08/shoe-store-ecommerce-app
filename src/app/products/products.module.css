@@ -126,7 +126,7 @@
 }
 
 .sortByDropDown{
-    z-index: 1000;
+    z-index: 200;
     position: absolute;
     bottom: -140px;
     width: 184px;
@@ -919,8 +919,8 @@
     }
     
     .checkBox input{
-        width: 20px;
-        height: 20px;
+        width: 26px;
+        height: 26px;
     }
 
     .rangeValue span{
@@ -1050,6 +1050,11 @@
 
     .checkBox label{
         font-size: 1.8rem;
+    }
+
+    .checkBox input{
+        width: 24px;
+        height: 24px;
     }
 
     .rangeValue span{
