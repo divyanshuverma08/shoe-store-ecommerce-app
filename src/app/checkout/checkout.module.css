@@ -1,0 +1,419 @@
+.checkout{
+    padding: 32px 180px 90px 180px;
+    display: flex;
+    gap: 40px;
+}
+
+.checkoutDetails{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.link{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;  
+}
+
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.sectionHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sectionHeaderTitle{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.sectionHeaderContent{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sectionInputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionInputsFlex{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sectionInput{
+    width: 49%;
+}
+
+.inputContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inputContainerFlex{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inputSuggestion{
+    color: var(--neutrals-gray-9);
+    font-family: var(--font-inter);
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+.inputSelect{
+    width: 49%;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+    height: 48px;
+    padding: 10px 16px;
+    appearance: none; 
+    cursor: pointer;
+    background-color: transparent;
+
+    
+    color: var(--dark-gray);
+    font-family: var(--font-inter);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+  
+.inputSelect::-ms-expand{
+    display: none;
+}
+  
+.inputSelect option {
+    padding: 10px 16px;
+}
+
+.inputSelect option:first-child{
+    display: none;
+}
+
+.inputInfo{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.inputInfo p{
+    color: var(--Dark-Gray, #232321);
+    font-family: var(--font-rubik);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputInfo p:last-child{
+    font-family: var(--font-inter);
+    font-weight: 400;
+}
+
+.delivery{
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.delivery.unselected{
+    background-color: transparent;
+    border: 1px solid var(--dark-gray);
+}
+
+.delivery.selected{
+    background-color: var(--fa--white);
+    border: none;
+}
+.deliveryOptionContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.deliveryOptionContainer h3{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.deliveryOptionContainer p{
+    color: var(--Dark-Gray, #232321);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+
+    opacity: 0.8;
+}
+
+.deliveryCost{
+    font-family: var(--font-rubik);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;  
+}
+
+.delivery.unselected .deliveryCost{
+    color: var(--dark-gray);
+}
+
+.delivery.selected .deliveryCost{
+    color: var(--blue);
+}
+
+.inputCheckBox{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.inputCheckBox input{
+    flex: 0 0 24px;
+    -webkit-tap-highlight-color: transparent;
+    width: 24px;
+    height: 24px;
+    accent-color: var(--dark-gray);
+}
+
+.inputCheckBox label{
+    -webkit-tap-highlight-color: transparent;
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputCheckBoxContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputCheckBoxContainer p{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.checkoutButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    width: 35%;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--dark-gray);
+
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+
+}
+
+.orderDetails{
+    flex: 1.5;
+}
+
+@media screen and (max-width: 1536px) {
+
+    .checkout{
+        padding: 32px 150px 90px 150px;
+    }  
+
+    .checkoutButton{
+        width: 55%;
+    }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .checkout{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 28px;
+        padding-bottom: 80px;
+
+        gap: 20px;
+    }  
+    
+    .sectionHeaderTitle{
+        font-size: 2.8rem;
+    }
+
+    .deliveryOptionContainer h3{
+        font-size: 2.2rem;
+    }
+
+    .deliveryCost{
+        font-size: 1.8rem;
+    }
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .checkout{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+    }  
+    
+    .sectionHeaderTitle{
+        font-size: 2.4rem;
+    }
+
+    .deliveryOptionContainer h3{
+        font-size: 2rem;
+    }
+
+    .deliveryCost{
+        font-size: 1.6rem;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .checkout{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 24px;
+        padding-bottom: 40px;
+
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        gap: 24px;
+    }   
+
+    .checkoutDetails{
+        flex: 1;
+        gap: 24px;
+    }
+
+    .link{
+        font-size: 1.8rem;
+    }
+
+    .section{
+        gap: 24px;
+    }
+
+    .sectionInputs{
+        gap: 18px;
+    }
+
+    .sectionInput{
+        width: 100%;
+    }
+
+    .sectionInputsFlex{
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .inputSelect{
+        width: 100%;
+    }
+
+    .inputContainerFlex{
+        width: 100%;
+    }
+
+    .orderDetails{
+        flex: 1;
+    }
+
+    .checkoutButton{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .checkout{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }  
+
+    .checkoutDetails{
+        gap: 20px;
+    }
+    
+    .section{
+        gap: 20px;
+    }
+
+    .sectionInputs{
+        gap: 16px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+
+}
