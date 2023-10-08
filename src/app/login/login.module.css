@@ -1,0 +1,199 @@
+.login{
+    padding: 32px 180px 90px 180px;
+    display: flex;
+    gap: 40px;
+}
+
+.loginLeft{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 40px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.headerTitle{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.headerLink{
+    display: inline-block;
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.headerLink a{
+    text-decoration-line: underline;
+}
+
+.checkBox{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkBox input{
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    -webkit-tap-highlight-color: transparent;
+    accent-color: var(--dark-gray);
+}
+
+.checkBox label{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.checkBox label span{
+    text-decoration-line: underline;
+}
+
+.loginButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--dark-gray);
+}
+
+.loginButton p{
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.loginButton img{
+    width: 16px;
+    height: 16px;  
+}
+
+.terms{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.terms span{
+    text-decoration-line: underline;
+}
+
+.loginRight{
+    flex: 3;
+}
+
+@media screen and (max-width: 1536px) {
+
+    .login{
+        padding: 32px 150px 90px 150px;
+        gap: 32px;
+    }  
+
+    .loginLeft{
+        padding: 0 20px;
+    }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .login{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 28px;
+        padding-bottom: 80px;
+
+        gap: 28px;
+    }  
+
+    .loginLeft{
+        padding: 0 16px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .login{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+
+        gap: 24px;
+    }  
+
+    .loginLeft{
+        padding: 0;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .login{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 24px;
+        padding-bottom: 40px;
+
+        flex-direction: column;
+        gap: 24px;
+    } 
+    
+    .headerTitle{
+        font-size: 3.2rem;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .login{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }  
+
+    .headerTitle{
+        font-size: 2.8rem;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+
+    .headerTitle{
+        font-size: 2.4rem;
+    }
+
+}

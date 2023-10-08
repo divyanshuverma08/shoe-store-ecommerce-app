@@ -1,0 +1,228 @@
+.register{
+    padding: 32px 180px 90px 180px;
+    display: flex;
+    gap: 40px;
+}
+
+.registerLeft{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 40px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.headerTitle{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.headerLink{
+    display: inline-block;
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.headerLink a{
+    text-decoration-line: underline;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionTitle{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inputContainer p{
+    color: var(--neutrals-gray-9);
+    font-family: var(--font-inter);
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+.checkBox{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.checkBox:last-child{
+    align-items: center;
+}
+
+.checkBox input{
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    -webkit-tap-highlight-color: transparent;
+    accent-color: var(--dark-gray);
+}
+
+.checkBox label{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.checkBox label span{
+    text-decoration-line: underline;
+}
+
+.loginButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--dark-gray);
+}
+
+.loginButton p{
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.loginButton img{
+    width: 16px;
+    height: 16px;  
+}
+
+.registerRight{
+    flex: 3;
+}
+
+@media screen and (max-width: 1536px) {
+
+    .register{
+        padding: 32px 150px 90px 150px;
+        gap: 32px;
+    }  
+
+    .registerLeft{
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+
+    .register{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 28px;
+        padding-bottom: 80px;
+
+        gap: 28px;
+    }  
+
+    .registerLeft{
+        padding: 0 16px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .register{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+
+        gap: 24px;
+    }  
+
+    .registerLeft{
+        padding: 0;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .register{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 24px;
+        padding-bottom: 40px;
+
+        flex-direction: column;
+        gap: 24px;
+    } 
+
+    .headerTitle{
+        font-size: 3.2rem;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .register{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }  
+
+    .registerLeft{
+        gap: 20px;
+    }
+
+    .headerTitle{
+        font-size: 2.8rem;
+    }
+
+    .sectionTitle{
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+
+    .headerTitle{
+        font-size: 2.4rem;
+    }
+
+}

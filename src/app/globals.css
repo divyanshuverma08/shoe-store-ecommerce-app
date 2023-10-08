@@ -68,10 +68,12 @@ button {
   font: inherit;
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input {
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input::placeholder { font: inherit; }
