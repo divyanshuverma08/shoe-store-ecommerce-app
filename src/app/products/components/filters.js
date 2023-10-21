@@ -1,12 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "@mui/material/Slider";
 import styles from "../products.module.css";
+import { useRouter } from "next/navigation";
 
-export default function Filters() {
-  const [value, setValue] = React.useState([15500, 30000]);
+const sizes = [6, 7, 8, 9, 10, 11, 12];
+const colors = [
+  "blue",
+  "yellow",
+  "black",
+  "green",
+  "jet",
+  "orange",
+  "gray",
+  "metal",
+  "brown",
+  "wood",
+];
+
+const categories = [
+  "casual",
+  "runners",
+  "hiking",
+  "sneaker",
+  "basketball",
+  "golf",
+  "outdoor",
+];
+
+const priceMin = 1000;
+const priceMax = 100000;
+
+export default function Filters({ params, modal, onClose }) {
+  const router = useRouter();
+
+  const [init, setInit] = useState(false);
+  const [value, setValue] = React.useState([parseInt(params["price[gte]"]) || priceMin, parseInt(params["price[lte]"]) || priceMax]);
 
   const [hide, setHide] = useState({
     refine: false,
@@ -17,9 +48,154 @@ export default function Filters() {
     price: true,
   });
 
+  const [size, setSize] = useState(params.size || "");
+
+  const [color, setColor] = useState(params.color || "");
+
+  const [category, setCategory] = useState(params.category || "");
+
+  const [gender, setGender] = useState(params.gender || "");
+
+  const [price, setPrice] = useState({
+    gte: parseInt(params["price[gte]"]) || priceMin,
+    lte: parseInt(params["price[lte]"]) || priceMax,
+  });
+
+  const [mobileQuery, setMobileQuery] = useState("");
+
+  const handleSize = (newSize) => {
+    let oldSize = [];
+
+    if (size.length > 0) {
+      oldSize = size.split(",").map(Number);
+    }
+
+    if (oldSize.includes(newSize)) {
+      let index = oldSize.indexOf(newSize);
+      oldSize.splice(index, 1);
+    } else {
+      oldSize.push(newSize);
+    }
+
+    setSize(oldSize.toString());
+  };
+
+  const handleColor = (newColor) => {
+    let oldColor = [];
+
+    if (color.length > 0) {
+      oldColor = color.split(",");
+    }
+
+    if (oldColor.includes(newColor)) {
+      let index = oldColor.indexOf(newColor);
+      oldColor.splice(index, 1);
+    } else {
+      oldColor.push(newColor);
+    }
+
+    setColor(oldColor.toString());
+  };
+
+  const handleCategory = (newCategory) => {
+    let oldCategory = [];
+
+    if (category.length > 0) {
+      oldCategory = category.split(",");
+    }
+
+    if (oldCategory.includes(newCategory)) {
+      let index = oldCategory.indexOf(newCategory);
+      oldCategory.splice(index, 1);
+    } else {
+      oldCategory.push(newCategory);
+    }
+
+    setCategory(oldCategory.toString());
+  };
+
+  const handleGender = (newGender) => {
+    let oldGender = [];
+
+    if (gender.length > 0) {
+      oldGender = gender.split(",");
+    }
+
+    if (oldGender.includes(newGender)) {
+      let index = oldGender.indexOf(newGender);
+      oldGender.splice(index, 1);
+    } else {
+      oldGender.push(newGender);
+    }
+
+    setGender(oldGender.toString());
+  };
+
+  const handlePrice = (value) => {
+    const [gte, lte] = value;
+    setPrice({ gte: gte, lte: lte });
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleMobileQuery = () => {
+    router.push(`/products?` + mobileQuery, { scroll: false });
+    onClose();
+  };
+
+  const resetFilters = () => {
+    setSize("");
+    setColor("");
+    setCategory("");
+    setGender("");
+    setPrice({
+      gte: priceMin,
+      lte: priceMax,
+    });
+  };
+
+  useEffect(() => {
+    if (init) {
+      let queryObject = {};
+      const { sort } = params;
+
+      if (size) {
+        queryObject.size = size;
+      }
+
+      if (color) {
+        queryObject.color = color;
+      }
+
+      if (category) {
+        queryObject.category = category;
+      }
+
+      if (gender) {
+        queryObject.gender = gender;
+      }
+
+      if (price.gte && price.lte) {
+        queryObject["price[gte]"] = price.gte;
+        queryObject["price[lte]"] = price.lte;
+      }
+
+      if (sort) {
+        queryObject.sort = sort;
+      }
+
+      const urlQuery = new URLSearchParams(queryObject);
+
+      if (!modal) {
+        router.push(`/products?` + urlQuery, { scroll: false });
+      } else {
+        setMobileQuery(urlQuery);
+      }
+    }
+    setInit(true);
+  }, [size, color, category, gender, price]);
 
   return (
     <>
@@ -46,12 +222,19 @@ export default function Filters() {
               hide.refine ? styles.hide : styles.display
             }`}
           >
-            <div className={styles.refineBySelection}>
-              <p>Mens</p>
-            </div>
-            <div className={styles.refineBySelection}>
-              <p>Casual</p>
-            </div>
+            {[
+              ...size.split(","),
+              ...color.split(","),
+              ...category.split(","),
+              ...gender.split(","),
+            ].map(
+              (ele, i) =>
+                ele !== "" && (
+                  <div key={i} className={styles.refineBySelection}>
+                    <p>{ele}</p>
+                  </div>
+                )
+            )}
           </div>
         </div>
         <div className={styles.filterOption}>
@@ -75,25 +258,17 @@ export default function Filters() {
               hide.size ? styles.hide : styles.display
             }`}
           >
-            <div
-              className={`${styles.box} ${styles.size} ${styles.selectedSize}`}
-            >
-              6
-            </div>
-            <div
-              className={`${styles.box} ${styles.size} ${styles.unavailableSize}`}
-            >
-              7
-            </div>
-            <div
-              className={`${styles.box} ${styles.size} ${styles.unavailableSize}`}
-            >
-              8
-            </div>
-            <div className={`${styles.box} ${styles.size}`}>9</div>
-            <div className={`${styles.box} ${styles.size}`}>10</div>
-            <div className={`${styles.box} ${styles.size}`}>11</div>
-            <div className={`${styles.box} ${styles.size}`}>12</div>
+            {sizes.map((ele, i) => (
+              <div
+                key={i}
+                onClick={() => handleSize(ele)}
+                className={`${styles.box} ${styles.size} ${
+                  size.includes(ele) && styles.selectedSize
+                }`}
+              >
+                {ele}
+              </div>
+            ))}
           </div>
         </div>
         <div className={styles.filterOption}>
@@ -117,16 +292,19 @@ export default function Filters() {
               hide.color ? styles.hide : styles.display
             }`}
           >
-            <div className={`${styles.box} blue`}></div>
-            <div className={`${styles.box} yellow`}></div>
-            <div className={`${styles.box} black`}></div>
-            <div className={`${styles.box} green`}></div>
-            <div className={`${styles.box} jet`}></div>
-            <div className={`${styles.box} orange`}></div>
-            <div className={`${styles.box} gray`}></div>
-            <div className={`${styles.box} metal`}></div>
-            <div className={`${styles.box} brown`}></div>
-            <div className={`${styles.box} wood`}></div>
+            {colors.map((ele, i) => (
+              <div
+                key={i}
+                className={`${styles.box} ${ele}`}
+                onClick={() => handleColor(ele)}
+              >
+                {color.includes(ele) && (
+                  <div className={styles.boxTick}>
+                    <Image src="/tick.svg" width={30} height={30} alt="tick" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
         <div className={styles.filterOption}>
@@ -150,69 +328,19 @@ export default function Filters() {
               hide.category ? styles.hide : styles.display
             }`}
           >
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="casual"
-                name="casual"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="casual">Casual shoes</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="runners"
-                name="runners"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="runners">Runners</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="hiking"
-                name="hiking"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="hiking">Hiking</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="sneaker"
-                name="sneaker"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="sneaker">Sneaker</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="basketball"
-                name="basketball"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="basketball">Basketball</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="golf"
-                name="golf"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="golf">Golf</label>
-            </div>
-            <div className={styles.checkBox}>
-              <input
-                type="checkbox"
-                id="outdoor"
-                name="outdoor"
-                onChange={(e) => console.log(e.target.checked)}
-              />
-              <label htmlFor="outdoor">Outdoor</label>
-            </div>
+            {categories.map((ele, i) => (
+              <div key={i} className={styles.checkBox}>
+                <input
+                  type="checkbox"
+                  id={ele}
+                  value={ele}
+                  name={ele}
+                  checked={category.includes(ele)}
+                  onChange={() => handleCategory(ele)}
+                />
+                <label onClick={() => handleCategory(ele)} >{ele}</label>
+              </div>
+            ))}
           </div>
         </div>
         <div className={styles.filterOption}>
@@ -241,18 +369,20 @@ export default function Filters() {
                 type="checkbox"
                 id="men"
                 name="men"
-                onChange={(e) => console.log(e.target.checked)}
+                checked={gender.includes("Men")}
+                onChange={() => handleGender("Men")}
               />
-              <label htmlFor="men">Men</label>
+              <label onClick={() => handleGender("Men")} >Men</label>
             </div>
             <div className={styles.checkBox}>
               <input
                 type="checkbox"
                 id="women"
                 name="women"
-                onChange={(e) => console.log(e.target.checked)}
+                checked={gender.includes("Women")}
+                onChange={() => handleGender("Women")}
               />
-              <label htmlFor="women">Women</label>
+              <label onClick={() => handleGender("Women")}>Women</label>
             </div>
           </div>
         </div>
@@ -278,22 +408,25 @@ export default function Filters() {
             }`}
           >
             <Slider
-              min={5000}
-              max={50000}
+              onChangeCommitted={(e, value) => handlePrice(value)}
+              min={priceMin}
+              max={priceMax}
               value={value}
               onChange={handleChange}
               valueLabelDisplay="off"
             />
             <div className={styles.rangeValue}>
-              <span>${value[0]}</span>
-              <span>${value[1]}</span>
+              <span>₹{value[0]}</span>
+              <span>₹{value[1]}</span>
             </div>
           </div>
         </div>
       </div>
       <div className={styles.filtersMobileButtons}>
-        <button className={styles.mButton}>RESET</button>
-        <button className={styles.mButton}>APPLY</button>
+        <button className={styles.mButton} onClick={()=>resetFilters()}>RESET</button>
+        <button className={styles.mButton} onClick={() => handleMobileQuery()}>
+          APPLY
+        </button>
       </div>
     </>
   );

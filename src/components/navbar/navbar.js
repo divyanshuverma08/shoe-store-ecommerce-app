@@ -1,12 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./navbar.module.css";
+import ScrollLink from "../scrollLink/scrollLink";
 
 export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.categories}>
-        <div className={styles.category}>New Drop 🔥</div>
+        <ScrollLink href="#featured" className={styles.category}>New Drop 🔥</ScrollLink>
         <div className={styles.category}>
           Men
           <Image src="/caret_down.svg" alt="drop-down" width={12} height={12} />
@@ -21,11 +23,11 @@ export default function Navbar() {
         <div className={styles.line}></div>
         <div className={styles.line}></div>
       </div>
-      <div className={styles.logoContainer}>
+      <Link href="/" className={styles.logoContainer}>
         <div className={styles.logo}>
           <Image src="/logo.svg" fill alt="logo" />
         </div>
-      </div>
+      </Link>
       <div className={styles.action}>
         <div className={styles.search}>
           <Image src="/search.svg" fill alt="search" />

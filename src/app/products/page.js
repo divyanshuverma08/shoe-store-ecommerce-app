@@ -6,9 +6,30 @@ import Product from "@/components/product/product";
 import SortBy from "./components/sortBy";
 import Pagination from "./components/pagination";
 import FilterMobile from "./components/filterMobile";
+import { products } from "@/lib/services/products";
 
-export default function Products() {
-  const products = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+export const dynamic = 'force-dynamic'
+
+async function getProducts(params){
+
+  const query = new URLSearchParams({...params});
+
+  try {
+    const response = await products.getProductsWithFiltersAndPagination({query,auth: false});
+
+    if (response) {
+      return response;
+    }
+  } catch (error) {
+    if(error.response?.data){
+      console.log(error.response.data);
+    }
+  }
+}
+
+export default async function Products({searchParams}) {
+  const data = await getProducts(searchParams);
+  const metadata = data?.metadata;
 
   return (
     <div className={styles.products}>
@@ -29,25 +50,25 @@ export default function Products() {
           fill
         />
       </div>
-      <div className={styles.titleBar}>
-        <FilterMobile />
+      <div id="titleBar" className={styles.titleBar}>
+        <FilterMobile params={searchParams} />
         <div className={styles.title}>
           <h3>Life Style Shoes</h3>
           <p>122 items</p>
         </div>
-        <SortBy />
+        <SortBy params={searchParams} />
       </div>
       <div className={styles.main}>
         <div className={styles.filtersContainer}>
-          <Filters />
+          <Filters params={searchParams} />
         </div>
         <div className={styles.productsContainer}>
           <div className={styles.items}>
-            {products.map((e, i) => (
-              <Product key={i} />
+            {data?.data.map((product, i) => (
+              <Product grid={true} key={product._id} slug={product._id} model={product.model} category={product.category.name} price={product.price} newRelease={product.newRelease} />
             ))}
           </div>
-          <Pagination />
+          <Pagination params={searchParams} hasNext={metadata?.hasNextPage} hasPrev={metadata?.hasPreviousPage} totalPages={metadata?.totalPages} />
         </div>
       </div>
     </div>

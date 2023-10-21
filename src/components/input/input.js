@@ -11,7 +11,7 @@ export default function Input({ type, placeholder, value, name, onChange, classN
       placeholder={placeholder}
       value={value}
       name={name}
-      onChange={onChange}
+      onChange={(e)=>onChange(e)}
       required={required}
     />
   );

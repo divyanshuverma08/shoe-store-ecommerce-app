@@ -1,10 +1,10 @@
 .modal {
-  z-index: 300;
+  z-index: 1000;
   position:  fixed;
   top: 0;
   width: 100vw;
-  height: 100vh;
-  height: 100svh;
+  /* height: 100vh;
+  height: 100svh; */
   background: var(--gray);
   overflow-y: scroll;
 }

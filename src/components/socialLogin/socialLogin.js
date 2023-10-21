@@ -1,25 +1,27 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from "./socialLogin.module.css"
+import Link from 'next/link'
+import { environment } from '@/lib/environment'
 
 export default function SocialLogin() {
   return (
     <div className={styles.socialLogin}>
-    <div className={styles.loginProvider}>
+    <Link href={`${environment.SERVER_URL}/api/v1/auth/google`} className={styles.loginProvider}>
       <div className={styles.loginProviderImg}>
         <Image src="/google_login.svg" fill alt="google login" />
       </div>
-    </div>
+    </Link>
     <div className={styles.loginProvider}>
       <div className={styles.loginProviderImg}>
         <Image src="/apple_login.svg" fill alt="apple login" />
       </div>
     </div>
-    <div className={styles.loginProvider}>
+    <Link href={`${environment.SERVER_URL}/api/v1/auth/facebook`} className={styles.loginProvider}>
       <div className={styles.loginProviderImg}>
-        <Image src="/facebook_login.svg" fill alt="google login" />
+        <Image src="/facebook_login.svg" fill alt="facebook login" />
       </div>
-    </div>
+    </Link>
   </div>
   )
 }

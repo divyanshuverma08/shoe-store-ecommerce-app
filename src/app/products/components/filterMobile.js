@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "../products.module.css";
 import FilterModal from "@/components/filterModal/filterModal";
 
-export default function FilterMobile() {
+export default function FilterMobile({params}) {
   const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => {
@@ -28,7 +28,7 @@ export default function FilterMobile() {
         <Image src="/filter_icon.svg" width={24} height={24} alt="drop down" />
       </div>
       {showModal &&
-        createPortal(<FilterModal onClose={handleClose} />, document.body)}
+        createPortal(<FilterModal params={params} onClose={handleClose} />, document.body)}
     </>
   );
 }

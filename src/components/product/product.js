@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./product.module.css";
+import Link from "next/link";
 import Image from "next/image";
 
-export default function Product() {
+export default function Product({slug,model,category,price,newRelease,grid}) {
   return (
-    <div className={styles.product}>
+    <div className={`${styles.product} ${grid && styles.grid}`}>
       <div className={styles.productImageContainer}>
-        <div className={styles.newTag}>New</div>
+        {newRelease && <div className={styles.newTag}>New</div>}
         <Image
           className={styles.productImage}
           src="/product.png"
@@ -15,12 +16,12 @@ export default function Product() {
         />
       </div>
       <div className={styles.productInfo}>
-        <p>ADIDAS 4DFWD X PARLEY</p>
-        <p>RUNNING SHOES</p>
+        <p>{model}</p>
+        <p>{category}</p>
       </div>
-      <div className={styles.productButton}>
-        VIEW PRODUCT - <span>$120</span>
-      </div>
+      <Link href={`/products/${slug}`} className={styles.productButton}>
+        VIEW PRODUCT - <span>₹{price}</span>
+      </Link>
     </div>
   );
 }
