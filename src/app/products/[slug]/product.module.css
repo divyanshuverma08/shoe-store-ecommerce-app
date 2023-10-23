@@ -96,6 +96,8 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal; 
+
+    text-transform: capitalize;
 }
 
 .price{
@@ -182,6 +184,8 @@
     line-height: normal;
     letter-spacing: 0.25px;
     text-transform: uppercase;
+
+    cursor: pointer;
 }
 
 .selectedSize{    
@@ -216,6 +220,8 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.25px;
+    
+    cursor: pointer;
 }
 
 .buyNow{
@@ -234,6 +240,8 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.25px;
+
+    cursor: pointer;
 }
 
 .productAbout{
@@ -265,6 +273,10 @@
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+}
+
+.productAboutContent p:first-child{
+    text-transform: capitalize;
 }
 
 .productAboutContent ul{

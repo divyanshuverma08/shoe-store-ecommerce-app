@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "@/components/input/input";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -20,7 +20,7 @@ export default function LoginForm() {
     password: "",
   });
 
-  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  // const [keepLoggedIn, setKeepLoggedIn] = useState(false);
 
   const handleSubmit = async () => {
     const { email, password } = loginData;
@@ -37,11 +37,9 @@ export default function LoginForm() {
       });
       toast.dismiss(toastId);
 
-      if(keepLoggedIn){
-        localStorage.setItem("user",JSON.stringify(data.user))
-      }else{
-        dispatch(login(data.user))
-      }
+      localStorage.setItem("user", JSON.stringify(data.user));
+      dispatch(login(data.user));
+
       router.push("/");
     } catch (error) {
       toast.dismiss(toastId);
@@ -61,9 +59,11 @@ export default function LoginForm() {
     });
   };
 
-  if(user){
-    router.push("/");
-  }
+  useEffect(()=>{
+    if (user) {
+      router.push("/");
+    }
+  },[])
 
   return (
     <>
@@ -81,7 +81,7 @@ export default function LoginForm() {
         type={"password"}
         placeholder={"Password"}
       />
-      <div className={styles.checkBox}>
+      {/* <div className={styles.checkBox}>
         <input
           id="keepLoggedIn"
           type="checkbox"
@@ -92,7 +92,7 @@ export default function LoginForm() {
           Keep me logged in - applies to all log in options below.{" "}
           <span>More info</span>
         </label>
-      </div>
+      </div> */}
       <button onClick={handleSubmit} className={styles.loginButton}>
         <p>Email Login</p>
         <Image src="/arrow_right.svg" width={16} height={16} alt="login" />

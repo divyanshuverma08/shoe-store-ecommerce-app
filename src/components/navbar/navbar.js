@@ -3,12 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import ScrollLink from "../scrollLink/scrollLink";
+import Cart from "./cart";
 
 export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.categories}>
-        <ScrollLink href="#featured" className={styles.category}>New Drop 🔥</ScrollLink>
+        <ScrollLink href="#featured" className={styles.category}>
+          New Drop 🔥
+        </ScrollLink>
         <div className={styles.category}>
           Men
           <Image src="/caret_down.svg" alt="drop-down" width={12} height={12} />
@@ -35,7 +38,7 @@ export default function Navbar() {
         <div className={styles.user}>
           <Image src="/user.svg" fill alt="user profile" />
         </div>
-        <div className={styles.cart}>0</div>
+        <Cart />
       </div>
     </div>
   );

@@ -1,62 +1,101 @@
 import axios from "axios";
 import { environment } from "./environment";
 
-const headers = {
+let headers = {
   "Content-Type": "application/json",
   "api-key": `${environment.API_KEY}`,
 };
 
-const getToken = () => {
-  if (typeof window !== "undefined") {
-    return JSON.parse(localStorage.getItem("user"))
-      ? JSON.parse(localStorage.getItem("user")).jwtToken
-      : "";
-  }
-};
-
-const headerWithAuth = {
-  ...headers,
-  authorization: `Bearer ${getToken()}`,
-};
-
 export const Api = {
-  post: async function ({url, data, auth}) {
+  post: async function ({ url, data, auth }) {
+    if (auth) {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      headers = { ...headers, authorization: `Bearer ${token}` };
+    }
+
     try {
       const response = await axios.post(environment.SERVER_URL + url, data, {
-        headers: auth ? headerWithAuth : headers,
+        headers: headers,
       });
       return response;
     } catch (error) {
+      if (auth) {
+        if (error.response.data.status === 401) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("user", null);
+            window.location.href = "/login";
+          }
+        }
+      }
       throw error;
     }
   },
-  get: async function ({url, auth}) {
+  get: async function ({ url, auth }) {
+    if (auth) {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      headers = { ...headers, authorization: `Bearer ${token}` };
+    }
+    
     try {
       const response = await axios.get(environment.SERVER_URL + url, {
-        headers: auth ? headerWithAuth : headers,
+        headers: headers,
       });
       return response;
     } catch (error) {
+      if (auth) {
+        if (error.response.data.status === 401) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("user", null);
+            window.location.href = "/login";
+          }
+        }
+      }
       throw error;
     }
   },
-  put: async function ({url, data, auth}) {
+  put: async function ({ url, data, auth }) {
+    if (auth) {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      headers = { ...headers, authorization: `Bearer ${token}` };
+    }
+    
     try {
       const response = await axios.put(environment.SERVER_URL + url, data, {
-        headers: auth ? headerWithAuth : headers,
+        headers: headers,
       });
       return response;
     } catch (error) {
+      if (auth) {
+        if (error.response.data.status === 401) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("user", null);
+            window.location.href = "/login";
+          }
+        }
+      }
       throw error;
     }
   },
-  delete: async function ({url, auth}) {
+  delete: async function ({ url, auth }) {
+    if (auth) {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      headers = { ...headers, authorization: `Bearer ${token}` };
+    }
+    
     try {
       const response = await axios.delete(environment.SERVER_URL + url, {
-        headers: auth ? headerWithAuth : headers,
+        headers: headers,
       });
       return response;
     } catch (error) {
+      if (auth) {
+        if (error.response.data.status === 401) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("user", null);
+            window.location.href = "/login";
+          }
+        }
+      }
       throw error;
     }
   },

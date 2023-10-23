@@ -151,12 +151,16 @@
     font-weight: 600;
     line-height: normal;
     opacity: 0.8;
+
+    text-transform: capitalize;
 }
 
 .itemSizeAndQty{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 5px;
 }
 
 .itemQuantity{

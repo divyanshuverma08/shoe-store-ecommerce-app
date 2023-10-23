@@ -20,5 +20,15 @@ export const products = {
     } catch (error) {
       throw error;
     }
+  },
+  getProductById: async function ({id,auth}) {
+    try {
+      const response = await Api.get({url:`/api/v1/products/${id}`,auth});
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (error) {
+      throw error;
+    }
   }
 };

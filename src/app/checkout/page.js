@@ -1,25 +1,232 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./checkout.module.css";
 import OrderSummary from "@/components/orderSummary/orderSummary";
 import Link from "next/link";
 import Input from "@/components/input/input";
+import { products } from "@/lib/services/products";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  loadProduct,
+  getTotalAmount,
+  selectDeliveryType,
+  emptyCart
+} from "@/redux/cartSlice";
+import { order } from "../../lib/services/order";
+import toast from "react-hot-toast";
 
 export default function CheckOut() {
-  const [deliveryType, setDeliveryType] = useState("standard");
+  const dispatch = useDispatch();
 
-  const onValueChange = (e) => {
-    console.log(e.target.value);
-    setDeliveryType(e.target.value);
+  const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.auth.currentUser);
+
+  const [deliveryType, setDeliveryType] = useState("Standard");
+  const [userData, setUserData] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    deliveryAddress: "",
+    landmark: "",
+    city: "",
+    state: "default",
+    pincode: "",
+    phoneNumber: "",
+  });
+  const [billingSame, setBillingSame] = useState(false);
+  const [olderThan13, setOlderThan13] = useState(false);
+
+  const onDeliveryChange = (value) => {
+    setDeliveryType(value);
+    dispatch(selectDeliveryType(value));
+  };
+
+  useEffect(() => {
+    if (cart) {
+      getCartProducts();
+    }
+
+    if (user) {
+      setUserData((prevValue) => {
+        return {
+          ...prevValue,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        };
+      });
+    }
+  }, []);
+
+  const getCartProducts = async () => {
+    let items = cart.products;
+
+    if (cart.products.length < 1) {
+      return;
+    }
+
+    try {
+      await Promise.all(
+        items.map(async (item) => {
+          const product = await products.getProductById({
+            id: item.id,
+            auth: false,
+          });
+
+          const size = product.data.sizes.find(
+            ({ size }) => item.size === size
+          );
+
+          dispatch(
+            loadProduct({
+              id: item.id,
+              size: item.size,
+              model: product.data.model,
+              category: product.data.category.name,
+              gender: product.data.gender,
+              color: product.data.color,
+              price: product.data.price,
+              availableStock: size.quantity,
+            })
+          );
+        })
+      );
+
+      dispatch(getTotalAmount());
+    } catch (error) {
+      const err = error.response?.data?.message || "Something went wrong...";
+      toast.error(err);
+    }
+  };
+
+  const handleSubmit = async () => {
+    const {
+      email,
+      firstName,
+      lastName,
+      deliveryAddress,
+      landmark,
+      city,
+      state,
+      pincode,
+      phoneNumber,
+    } = userData;
+
+    if (
+      !email ||
+      !firstName ||
+      !lastName ||
+      !deliveryAddress ||
+      !landmark ||
+      !city ||
+      !pincode ||
+      !phoneNumber
+    ) {
+      toast.error("Please fill the mandatory fields");
+      return;
+    }
+
+    if (state === "default") {
+      toast.error("Please select a state");
+      return;
+    }
+
+    if (phoneNumber.length != 10) {
+      toast.error("Provide valid phone number");
+      return;
+    }
+
+    if (!billingSame) {
+      toast.error("Please check the billing address checkbox");
+      return;
+    }
+
+    if (!olderThan13) {
+      toast.error(
+        "You can only only place order if you care older than 13 years"
+      );
+      return;
+    }
+
+    try {
+      const toastId = toast.loading("Loading...", { position: "top-left" });
+
+      let response;
+
+      const items = cart.products.map((product) => {
+        return {
+          product: product.id,
+          size: product.size,
+          quantity: product.quantity,
+        };
+      });
+
+      if (user) {
+        response = await order.createOrder({
+          data: {
+            ...userData,
+            items,
+            deliveryType,
+            phoneNumber: parseInt(userData.phoneNumber),
+          },
+          auth: true,
+        });
+        
+      } else {
+        response = await order.createOrder({
+          data: {
+            ...userData,
+            items,
+            deliveryType,
+            phoneNumber: parseInt(userData.phoneNumber),
+          },
+          auth: false,
+        });
+      }
+
+      const orderId = response.data._id;
+
+      dispatch(emptyCart());
+
+      toast.dismiss(toastId);
+      toast.success("Order created");
+
+      let checkoutResponse;
+
+      if(user){
+        checkoutResponse = await order.createCheckout({id:orderId,auth: true});
+      }else{
+        checkoutResponse = await order.createCheckout({id:orderId,auth: false});
+      }
+
+      window.location.replace(checkoutResponse.data.url);
+
+    } catch (error) {
+      const err = error.response?.data?.message || "Something went wrong...";
+      toast.error(err);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setUserData((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
   };
 
   return (
     <div className={styles.checkout}>
       <div className={styles.checkoutDetails}>
-        <Link className={styles.link} href="/login">
-          Login and Checkout faster
-        </Link>
+        {!user && (
+          <Link className={styles.link} href="/login">
+            Login and Checkout faster
+          </Link>
+        )}
         <div className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionHeaderTitle}>Contact Details</h2>
@@ -29,9 +236,12 @@ export default function CheckOut() {
           </div>
           <div className={styles.sectionInputs}>
             <Input
+              name={"email"}
               className={styles.sectionInput}
               placeholder={"Email"}
-              type={"text"}
+              type={"email"}
+              value={userData.email}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -42,45 +252,65 @@ export default function CheckOut() {
           <div className={styles.sectionInputs}>
             <div className={styles.sectionInputsFlex}>
               <Input
+                name={"firstName"}
                 className={styles.sectionInput}
                 placeholder={"First Name*"}
                 type={"text"}
+                value={userData.firstName}
+                onChange={handleChange}
               />
               <Input
+                name={"lastName"}
                 className={styles.sectionInput}
                 placeholder={"Last Name*"}
                 type={"text"}
                 required={true}
+                value={userData.lastName}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.inputContainer}>
               <Input
+                name={"deliveryAddress"}
                 placeholder={"Delivery Address*"}
                 type={"text"}
                 required={true}
+                value={userData.deliveryAddress}
+                onChange={handleChange}
               />
               <p className={styles.inputSuggestion}>
                 Start typing your street address or zip code for suggestion
               </p>
             </div>
             <div className={styles.inputContainer}>
-              <Input placeholder={"Landmark*"} type={"text"} required={true} />
+              <Input
+                name={"landmark"}
+                placeholder={"Landmark*"}
+                type={"text"}
+                required={true}
+                value={userData.landmark}
+                onChange={handleChange}
+              />
               <p className={styles.inputSuggestion}>
                 Company, Apartment, Building, etc.
               </p>
             </div>
             <div className={styles.sectionInputsFlex}>
               <Input
+                name={"city"}
                 className={styles.sectionInput}
                 placeholder={"City*"}
                 type={"text"}
                 required={true}
+                value={userData.city}
+                onChange={handleChange}
               />
               <select
-                defaultValue="default"
+                name={"state"}
+                value={userData.state}
                 className={styles.inputSelect}
-                name="state"
                 id="state"
+                onChange={handleChange}
               >
                 <option disabled value="default">
                   State
@@ -129,14 +359,24 @@ export default function CheckOut() {
             </div>
             <div className={styles.sectionInputsFlex}>
               <div className={styles.inputContainerFlex}>
-                <Input placeholder={"Pincode*"} type={"text"} required={true} />
+                <Input
+                  name={"pincode"}
+                  placeholder={"Pincode*"}
+                  type={"number"}
+                  required={true}
+                  value={userData.pincode}
+                  onChange={handleChange}
+                />
                 <p className={styles.inputSuggestion}>E.g. 110001</p>
               </div>
               <div className={styles.inputContainerFlex}>
                 <Input
+                  name={"phoneNumber"}
                   placeholder={"Phone Number*"}
-                  type={"text"}
+                  type={"number"}
                   required={true}
+                  value={userData.phoneNumber}
+                  onChange={handleChange}
                 />
                 <p className={styles.inputSuggestion}>E.g. 9825637XXX</p>
               </div>
@@ -154,11 +394,11 @@ export default function CheckOut() {
           <div className={styles.sectionInputs}>
             <div
               className={`${styles.delivery} ${
-                deliveryType.localeCompare("standard") === 0
+                deliveryType.localeCompare("Standard") === 0
                   ? styles.selected
                   : styles.unselected
               }`}
-              onClick={() => setDeliveryType("standard")}
+              onClick={() => onDeliveryChange("Standard")}
             >
               <div className={styles.deliveryOptionContainer}>
                 <h3>Standard Delivery</h3>
@@ -168,29 +408,41 @@ export default function CheckOut() {
             </div>
             <div
               className={`${styles.delivery} ${
-                deliveryType.localeCompare("fast") === 0
+                deliveryType.localeCompare("Fast") === 0
                   ? styles.selected
                   : styles.unselected
               }`}
-              onClick={() => setDeliveryType("fast")}
+              onClick={() => onDeliveryChange("Fast")}
             >
               <div className={styles.deliveryOptionContainer}>
                 <h3>Fast Delivery</h3>
                 <p>You will get your order in 2 days</p>
               </div>
-              <p className={styles.deliveryCost}>$6.99</p>
+              <p className={styles.deliveryCost}>₹100</p>
             </div>
           </div>
         </div>
         <div className={styles.sectionInputs}>
           <div className={styles.inputCheckBox}>
-            <input type="checkbox" name="addressSame" id="addressSame" />
+            <input
+              type="checkbox"
+              name="addressSame"
+              id="addressSame"
+              checked={billingSame}
+              onChange={(e) => setBillingSame(e.target.checked)}
+            />
             <label htmlFor="addressSame">
               My billing and delivery information are the same
             </label>
           </div>
           <div className={styles.inputCheckBox}>
-            <input type="checkbox" name="age" id="age" />
+            <input
+              type="checkbox"
+              name="age"
+              id="age"
+              checked={olderThan13}
+              onChange={(e) => setOlderThan13(e.target.checked)}
+            />
             <label htmlFor="age">I’m 13+ year old</label>
           </div>
           <div className={styles.inputCheckBoxContainer}>
@@ -203,7 +455,9 @@ export default function CheckOut() {
             </div>
           </div>
         </div>
-        <button className={styles.checkoutButton}>Review AND PAY</button>
+        <button className={styles.checkoutButton} onClick={handleSubmit}>
+          Review AND PAY
+        </button>
       </div>
       <div className={styles.orderDetails}>
         <OrderSummary />

@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./productsMayLike.module.css";
 import Product from "../product/product";
 
-export default function ProductsMayLike() {
+export default function ProductsMayLike({data}) {
   return (
     <div className={styles.productsContainer}>
       <div className={styles.header}>
@@ -34,10 +34,9 @@ export default function ProductsMayLike() {
         </div>
       </div>
       <div className={styles.products}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {data?.map((product) => (
+          <Product key={product._id} slug={product._id} model={product.model} category={product.category.name} price={product.price} newRelease={product.newRelease} />
+        ))}
       </div>
     </div>
   );

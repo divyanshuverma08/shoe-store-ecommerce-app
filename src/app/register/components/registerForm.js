@@ -3,7 +3,7 @@
 import styles from "../register.module.css";
 import Image from "next/image";
 import Input from "@/components/input/input";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { auth } from "@/lib/services/auth";
@@ -25,7 +25,7 @@ export default function RegisterForm() {
   });
 
   const [termsCheckbox, setTermsCheckbox] = useState(false);
-  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  // const [keepLoggedIn, setKeepLoggedIn] = useState(false);
 
   const handleSubmit = async () => {
     const { email, password, passwordReEnter, firstName, lastName } =
@@ -89,11 +89,8 @@ export default function RegisterForm() {
       });
       toast.dismiss(toastId);
 
-      if(keepLoggedIn){
-        localStorage.setItem("user",JSON.stringify(data.user))
-      }else{
-        dispatch(login(data.user))
-      }
+      localStorage.setItem("user", JSON.stringify(data.user));
+      dispatch(login(data.user));
 
       toast.success("Account has been created", { duration: 2000 });
       router.push("/");
@@ -115,9 +112,11 @@ export default function RegisterForm() {
     });
   };
 
-  if(user){
-    router.push("/");
-  }
+  useEffect(()=>{
+    if (user) {
+      router.push("/");
+    }
+  },[])
 
   return (
     <>
@@ -170,18 +169,18 @@ export default function RegisterForm() {
       </div>
       <div className={styles.checkBox}>
         <input
-          id="keepLoggedIn"
+          id="termsandconditions"
           type="checkbox"
           checked={termsCheckbox}
           onChange={(e) => setTermsCheckbox(e.target.checked)}
         />
-        <label htmlFor="keepLoggedIn">
+        <label htmlFor="termsandconditions">
           Agree to our website KicksClub <span>Terms & Conditions</span>,
           <span>Kicks Privacy Notice</span> and
           <span>Terms & Conditions</span>.
         </label>
       </div>
-      <div className={styles.checkBox}>
+      {/* <div className={styles.checkBox}>
         <input
           id="keepLoggedIn"
           type="checkbox"
@@ -192,7 +191,7 @@ export default function RegisterForm() {
           Keep me logged in - applies to all log in options below.
           <span>More info</span>
         </label>
-      </div>
+      </div> */}
       <button className={styles.loginButton} onClick={handleSubmit}>
         <p>Register</p>
         <Image src="/arrow_right.svg" width={16} height={16} alt="login" />
