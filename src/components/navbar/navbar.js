@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.categories}>
-        <ScrollLink href="#featured" className={styles.category}>
+        <ScrollLink href="/#featured" className={styles.category}>
           New Drop 🔥
         </ScrollLink>
         <div className={styles.category}>
@@ -35,9 +35,9 @@ export default function Navbar() {
         <div className={styles.search}>
           <Image src="/search.svg" fill alt="search" />
         </div>
-        <div className={styles.user}>
+        <Link href="/profile" className={styles.user}>
           <Image src="/user.svg" fill alt="user profile" />
-        </div>
+        </Link>
         <Cart />
       </div>
     </div>

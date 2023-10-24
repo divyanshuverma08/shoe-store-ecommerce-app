@@ -1,0 +1,340 @@
+.profile{
+    padding: 32px 180px 90px 180px;
+    display: flex;
+    gap: 40px;
+}
+
+.profileDetails{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.sectionHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sectionHeaderContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sectionHeaderTitle{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+
+.sectionHeaderContent{
+    color: var(--dark-gray);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sectionInputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionInput{
+    width: 55%;
+}
+
+.emailUpdateContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.updateButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    width: 20%;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--blue);
+
+    color: var(--white);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+
+}
+
+.linkedAccount{
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--fa--white);
+}
+
+.loginProvider{
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.linkedAccountContainer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+.linkedAccountContainer h3{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.linkedAccountContainer p{
+    color: var(--Dark-Gray, #232321);
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+
+    opacity: 0.8;
+}
+
+.linkButton{
+    flex-shrink: 1;
+    font-family: var(--font-rubik);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;  
+}
+
+.linkButton .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.linkButton .link:hover{
+    border-radius: 28px;
+    background-color: #A2FF86;
+}
+
+.linkButton .link.unlink:hover{
+    border-radius: 28px;
+    background-color: #FF6969;
+}
+
+.loginProviderImg{
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.loginProviderImg img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.logOutButton{
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 8px 16px;
+    height: min-content;
+
+    font-family: var(--font-rubik);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;  
+
+    cursor: pointer;
+}
+
+.orderDetails{
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1536px) {
+
+    .profile{
+        padding: 32px 150px 90px 150px;
+    }  
+
+    .sectionInput{
+        width: 55%;
+    }
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .profile{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 28px;
+        padding-bottom: 80px;
+
+        gap: 20px;
+    }  
+
+    .sectionHeaderTitle{
+        font-size: 2.8rem;
+    }
+
+    .linkedAccountContainer h3{
+        font-size: 2.2rem;
+    }
+
+    .linkButton{
+        font-size: 1.8rem;
+    }
+
+    .logOutButton{
+        font-size: 1.8rem;
+    }
+
+    .sectionInput{
+        width: 65%;
+    }
+    
+    
+}
+
+@media screen and (max-width: 1024px){
+
+    .profile{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+    }  
+
+    .sectionHeaderTitle{
+        font-size: 2.4rem;
+    }
+
+    .linkedAccountContainer h3{
+        font-size: 2rem;
+    }
+
+    .linkButton{
+        font-size: 1.6rem;
+    }
+
+    .logOutButton{
+        font-size: 1.6rem;
+    }
+
+    .sectionInput{
+        width: 70%;
+    }
+
+    .updateButton{
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .profile{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 24px;
+        padding-bottom: 40px;
+
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 24px;
+    }   
+
+    
+    .profileDetails{
+        flex: 1;
+        gap: 24px;
+    }
+
+    .section{
+        gap: 24px;
+    }
+
+    .sectionInputs{
+        gap: 18px;
+    }
+
+    .sectionInput{
+        width: 100%;
+    }
+
+    .orderDetails{
+        flex: 1;
+    }
+
+    .emailUpdateContainer .updateButton{
+        width: 30%;
+    }
+
+    .updateButton{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 568px){
+
+    .profile{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }  
+
+    .profileDetails{
+        gap: 20px;
+    }
+    
+    .section{
+        gap: 20px;
+    }
+
+    .sectionInputs{
+        gap: 16px;
+    }
+
+}

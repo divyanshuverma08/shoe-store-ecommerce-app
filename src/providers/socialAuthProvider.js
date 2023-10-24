@@ -15,6 +15,7 @@ export default function SocailAuthProvider({ children }) {
     const searchParams = new URLSearchParams(urlSearchString);
 
     const valid = searchParams.get("valid");
+    const id = searchParams.get("id");
     const email = searchParams.get("email");
     const firstName = searchParams.get("firstName");
     const lastName = searchParams.get("lastName");
@@ -24,6 +25,7 @@ export default function SocailAuthProvider({ children }) {
 
     if (valid) {
       const user = {
+        id,
         email,
         firstName,
         lastName,

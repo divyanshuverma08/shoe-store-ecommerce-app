@@ -101,6 +101,12 @@ export default function CheckOut() {
   };
 
   const handleSubmit = async () => {
+
+    if(cart.products.length < 1){
+      toast.error("Please add products to your cart");
+      return;
+    }
+
     const {
       email,
       firstName,
