@@ -1,0 +1,145 @@
+.searchTab{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon{
+    width: 28px;
+    height: 28px;
+    position: relative;
+    cursor: pointer;
+}
+
+.searchInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 200px;
+    height: 40px;
+    padding: 8px 16px;
+
+    border-radius: 8px;
+    border: 1px solid var(--blue);
+}
+
+.searchInputContainer{
+    width: 100%;
+    border-right: 1px solid black;
+}
+
+.searchInputContainer input{
+    width: 100%;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--dark-gray);
+    font-family: var(--font-inter);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.searchInput::placeholder{
+    color: var(--neutrals-gray-5);
+}
+
+.searchInput svg{
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+}
+
+.searchResult{
+    width: 250px;
+    height: 500px;
+    overflow-y: scroll;
+
+    z-index: 1006;
+    position: absolute;
+
+    top: 72px;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 20px;
+
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+}
+
+.searchResult::-webkit-scrollbar {
+    width: 14px;
+}
+
+.searchResult::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.searchResult::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: var(--blue);
+}
+
+.title{
+    color: var(--dark-gray);
+    font-family: var(--font-rubik);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tab{
+    width: 100%;
+
+    color: #000;
+    font-family: var(--font-open-sans);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow{
+    transform: rotate(-90deg);
+}
+
+.bottom{
+    color: var(--blue);
+    font-family: var(--font-rubik);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .searchIcon{
+        display: none;
+    }
+
+}

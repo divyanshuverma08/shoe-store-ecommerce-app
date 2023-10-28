@@ -9,16 +9,28 @@ import FilterModal from "@/components/filterModal/filterModal";
 export default function FilterMobile({params}) {
   const [showModal, setShowModal] = useState(false);
 
+  const disableBodyScroll = () => {
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const enableBodyScroll = () => {
+    document.body.style.overflow = "unset";
+  };
+
   const handleClose = () => {
     setShowModal(false);
-    document.body.querySelector(".wrapper").classList.remove("stopScroll");
-    document.body.classList.remove("stopScroll");
+    enableBodyScroll();
+    // document.body.querySelector(".wrapper").classList.remove("stopScroll");
+    // document.body.classList.remove("stopScroll");
   };
 
   const handleOpen = () => {
     setShowModal(true);
-    document.body.querySelector(".wrapper").classList.add("stopScroll");
-    document.body.classList.add("stopScroll");
+    disableBodyScroll();
+    // document.body.querySelector(".wrapper").classList.add("stopScroll");
+    // document.body.classList.add("stopScroll");
   };
 
   return (
