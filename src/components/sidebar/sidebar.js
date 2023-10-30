@@ -137,6 +137,19 @@ export default function Sidebar() {
               <Image src="/arrow_down.svg" width={25} height={25} alt="men" />
             </div>
           </div>
+          <div
+            className={styles.tab}
+            onClick={() => {
+              setOpen(false);
+              enableBodyScroll();
+              router.push("/products");
+            }}
+          >
+            All Products
+            <div className={styles.arrow}>
+              <Image src="/arrow_down.svg" width={25} height={25} alt="men" />
+            </div>
+          </div>
           {!user ? (
             <div
               onClick={() => {

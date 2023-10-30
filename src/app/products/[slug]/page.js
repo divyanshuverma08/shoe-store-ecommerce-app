@@ -44,7 +44,7 @@ export default async function Product({ params }) {
   return (
     <div className={styles.product}>
       <div className={styles.productContainer}>
-        <ProductImages />
+        <ProductImages images={data.images} />
         <div className={styles.prouctDetails}>
           <div className={styles.productInfo}>
             {data?.newRelease && (

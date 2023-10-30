@@ -3,14 +3,14 @@ import styles from "./product.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Product({slug,model,category,price,newRelease,grid}) {
+export default function Product({slug,model,category,price,newRelease,grid,image}) {
   return (
     <div className={`${styles.product} ${grid && styles.grid}`}>
       <div className={styles.productImageContainer}>
         {newRelease && <div className={styles.newTag}>New</div>}
         <Image
           className={styles.productImage}
-          src="/product.png"
+          src={image}
           alt="show"
           fill
         />

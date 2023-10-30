@@ -156,6 +156,10 @@ export default function Filters({ params, modal, onClose }) {
     });
   };
 
+  useEffect(()=>{
+    setCategory(params.category);
+  },[params.category])
+
   useEffect(() => {
     if (init) {
       let queryObject = {};

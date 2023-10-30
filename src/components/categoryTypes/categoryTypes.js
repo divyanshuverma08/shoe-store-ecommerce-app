@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./categoryTypes.module.css";
+import Link from "next/link";
 
 export default function CategoryTypes() {
   return (
@@ -16,10 +17,10 @@ export default function CategoryTypes() {
         </div>
         <div className={styles.categoryTab}>
           <div className={styles.categoryInfo}>
-            <p>Lifestyle</p>
+            <p>Casual</p>
             <p>Shoes</p>
           </div>
-          <button className={styles.categoryButton}>
+          <Link href="/products/?category=casual" className={styles.categoryButton}>
             <div className={styles.categoryButtonIcon}>
               <Image
                 className={styles.categoryIcon}
@@ -28,7 +29,7 @@ export default function CategoryTypes() {
                 alt="forward"
               />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
       <div className={styles.categoryTwo}>
@@ -45,7 +46,7 @@ export default function CategoryTypes() {
             <p>Basketball</p>
             <p>Shoes</p>
           </div>
-          <button className={styles.categoryButton}>
+          <Link Link href="/products/?category=basketball" className={styles.categoryButton}>
             <div className={styles.categoryButtonIcon}>
               <Image
                 className={styles.categoryIcon}
@@ -54,7 +55,7 @@ export default function CategoryTypes() {
                 alt="open"
               />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

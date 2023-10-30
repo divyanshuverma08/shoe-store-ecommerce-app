@@ -81,7 +81,7 @@
     font-weight: 600;
 }
 
-.product button{
+.product a{
     margin-top: 24px;
     display: flex;
     padding: 16px 32px;
@@ -160,7 +160,7 @@
         font-size: 1.35vw
     }
 
-    .product button{
+    .product a{
         font-size: 1.4rem;
     }
 
@@ -237,7 +237,7 @@
         font-size: 1.65vw
     }
 
-    .product button{
+    .product a{
         margin-top: 12px;
         font-size: 1.2rem;
         padding: 8px 16px;
@@ -301,7 +301,7 @@
         font-size: 3.6vw
     }
 
-    .product button{
+    .product a{
         margin-top: 12px;
         font-size: 1.4rem;
         padding: 8px 16px;
@@ -357,7 +357,7 @@
         font-size: 3.4vw
     }
 
-    .product button{
+    .product a{
         margin-top: 12px;
         font-size: 1.4rem;
         padding: 8px 16px;
@@ -398,7 +398,7 @@
         font-size: 3.6vw
     }
 
-    .product button{
+    .product a{
         margin-top: 8px;
         font-size: 1.2rem;
         padding: 6px 14px;

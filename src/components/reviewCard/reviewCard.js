@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./reviewCard.module.css";
 import Image from "next/image";
 
-export default function ReviewCard() {
+export default function ReviewCard({userImage,productImage}) {
   return (
     <div className={styles.reviewCard}>
       <div className={styles.header}>
@@ -14,7 +14,7 @@ export default function ReviewCard() {
             </p>
           </div>
           <div className={styles.userImage}>
-            <Image src="/user-img.jpeg" alt="user image" fill />
+            <Image src={userImage} alt="user image" fill />
           </div>
         </div>
         <div className={styles.stars}>
@@ -37,7 +37,7 @@ export default function ReviewCard() {
         </div>
       </div>
       <div className={styles.reviewImage}>
-        <Image src="/review-img.png" alt="review" fill />
+        <Image src={productImage} alt="review" fill />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import HeroImages from "./components/heroImages";
 import styles from "./hero.module.css";
+import Link from "next/link";
 
 
 export default function Hero() {
@@ -17,7 +18,7 @@ export default function Hero() {
         <div className={styles.product}>
           <h2>NIKE AIR MAX</h2>
           <p>{"Nike introducing the new air max for everyone's comfort"}</p>
-          <button>SHOP NOW</button>
+          <Link href="/products">SHOP NOW</Link>
         </div>
         <HeroImages />
       </div>

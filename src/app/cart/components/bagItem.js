@@ -7,7 +7,7 @@ import { changeProductQuantity, removeProduct, getTotalAmount, checkCartValidity
 import { useDispatch } from "react-redux";
 import Link from 'next/link'
 
-export default function BagItem({id,model,gender,category,color,size,price,quantity,availableStock}) {
+export default function BagItem({id,model,gender,category,color,size,price,quantity,availableStock,image}) {
   const dispatch = useDispatch();
 
   const [itemQuantity,setItemQuantity] = useState(quantity);
@@ -29,7 +29,7 @@ export default function BagItem({id,model,gender,category,color,size,price,quant
   return (
     <div className={styles.bagItem} style={{opacity: availableStock < quantity ? 0.4 : 1}}>
     <div className={styles.itemImg}>
-      <Image src="/product/img1.png" fill alt="product image" />
+      <Image src={image} fill alt="product image" />
     </div>
     <div className={styles.itemCotainer}>
       <div className={styles.itemDescBox}>

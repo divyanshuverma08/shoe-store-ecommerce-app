@@ -43,7 +43,7 @@ export default function Cart() {
           const size = product.data.sizes.find(
             ({ size }) => item.size === size
           );
-
+          
           dispatch(
             loadProduct({
               id: item.id,
@@ -54,6 +54,7 @@ export default function Cart() {
               color: product.data.color,
               price: product.data.price,
               availableStock: size.quantity,
+              image: product.data.images[0].imageUrl
             })
           );
         })
@@ -115,6 +116,7 @@ export default function Cart() {
                 size={product.size}
                 quantity={product.quantity}
                 availableStock={product.availableStock}
+                image={product.image}
               />
             ))}
           </div>

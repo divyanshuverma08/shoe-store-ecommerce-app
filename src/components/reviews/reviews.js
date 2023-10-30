@@ -58,9 +58,9 @@ export default function Reviews() {
           <ReviewCard />
         ) : (
           <>
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
+            <ReviewCard userImage={"/review/user-img1.jpeg"} productImage={"/review/review-img1.png"}  />
+            <ReviewCard userImage={"/review/user-img2.png"} productImage={"/review/review-img2.png"} />
+            <ReviewCard userImage={"/review/user-img3.png"} productImage={"/review/review-img3.png"} />
           </>
         )}
       </div>

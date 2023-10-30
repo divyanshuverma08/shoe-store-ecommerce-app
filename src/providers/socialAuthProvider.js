@@ -61,6 +61,6 @@ export default function SocailAuthProvider({ children }) {
           return;
     }
 
-  });
+  },[]);
   return <>{children}</>;
 }

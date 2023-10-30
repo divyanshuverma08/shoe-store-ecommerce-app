@@ -65,7 +65,7 @@ export default async function Products({searchParams}) {
         <div className={styles.productsContainer}>
           <div className={styles.items}>
             {data?.data.map((product, i) => (
-              <Product grid={true} key={product._id} slug={product._id} model={product.model} category={product.category.name} price={product.price} newRelease={product.newRelease} />
+              <Product grid={true} key={product._id} slug={product._id} model={product.model} category={product.category.name} price={product.price} newRelease={product.newRelease} image={product.images[0].imageUrl} />
             ))}
           </div>
           <Pagination params={searchParams} hasNext={metadata?.hasNextPage} hasPrev={metadata?.hasPreviousPage} totalPages={metadata?.totalPages} />

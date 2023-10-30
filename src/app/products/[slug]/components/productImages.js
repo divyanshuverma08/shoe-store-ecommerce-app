@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "../product.module.css";
 import { Carousel } from "react-responsive-carousel";
 
-export default function ProductImages() {
+export default function ProductImages({ images }) {
   const [mounted, setMounted] = useState(false);
 
   const useWindowDimensions = () => {
@@ -44,42 +44,42 @@ export default function ProductImages() {
 
   const { height, width } = useWindowDimensions();
   return (
-    mounted && <div className={styles.productImages}>
-      {width > 768 ? (
-        <>
-          <div className={styles.productImageTop}>
-            <div className={styles.image}>
-              <Image src="/product/img1.png" fill alt="product" />
+    mounted && (
+      <div className={styles.productImages}>
+        {width > 768 ? (
+          <>
+            <div className={styles.productImageTop}>
+              <div className={styles.image}>
+                <Image src={images[0].imageUrl} fill alt="product" />
+              </div>
+              <div className={styles.image}>
+                <Image src={images[1].imageUrl} fill alt="product" />
+              </div>
             </div>
-            <div className={styles.image}>
-              <Image src="/product/img2.png" fill alt="product" />
+            <div className={styles.productImageBottom}>
+              <div className={styles.image}>
+                <Image src={images[2].imageUrl} fill alt="product" />
+              </div>
+              <div className={styles.image}>
+                <Image src={images[3].imageUrl} fill alt="product" />
+              </div>
             </div>
-          </div>
-          <div className={styles.productImageBottom}>
-            <div className={styles.image}>
-              <Image src="/product/img3.png" fill alt="product" />
-            </div>
-            <div className={styles.image}>
-              <Image src="/product/img4.png" fill alt="product" />
-            </div>
-          </div>
-        </>
-      ) : (
-        <Carousel emulateTouch={true} showArrows={false} showStatus={false} className={styles.cls}>
-          <div>
-            <img alt="product" src="/product/img1.png" />
-          </div>
-          <div>
-            <img alt="product" src="/product/img2.png" />
-          </div>
-          <div>
-            <img alt="product" src="/product/img3.png" />
-          </div>
-          <div>
-            <img alt="product" src="/product/img4.png" />
-          </div>
-        </Carousel>
-      )}
-    </div>
+          </>
+        ) : (
+          <Carousel
+            emulateTouch={true}
+            showArrows={false}
+            showStatus={false}
+            className={styles.cls}
+          >
+            {images.map((image, i) => (
+              <div key={i}>
+                <img alt="product" src={image.imageUrl} />
+              </div>
+            ))}
+          </Carousel>
+        )}
+      </div>
+    )
   );
 }

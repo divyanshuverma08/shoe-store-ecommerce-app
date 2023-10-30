@@ -57,7 +57,7 @@ const cartSlice = createSlice({
           product.size === action.payload.size
       );
 
-      const { model, category, gender, color, price, availableStock } =
+      const { model, category, gender, color, price, availableStock, image } =
         action.payload;
 
       if (existingProduct) {
@@ -67,6 +67,7 @@ const cartSlice = createSlice({
         existingProduct.color = color;
         existingProduct.price = price;
         existingProduct.availableStock = availableStock;
+        existingProduct.image = image;
       }
     },
     getTotalAmount: (state) => {

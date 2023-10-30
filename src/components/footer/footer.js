@@ -46,22 +46,22 @@ export default function Footer() {
             <div className={styles.linkBox}>
               <p className={styles.linkTitle}>Categories</p>
               <div className={styles.links}>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=runners" prefetch={false} className={styles.link}>
                   Runners
                 </Link>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=sneaker" className={styles.link}>
                   Sneakers
                 </Link>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=basketball" className={styles.link}>
                   Basketball
                 </Link>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=outdoor" className={styles.link}>
                   Outdoor
                 </Link>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=golf" className={styles.link}>
                   Golf
                 </Link>
-                <Link href="/" className={styles.link}>
+                <Link href="/products?category=hiking" className={styles.link}>
                   Hiking
                 </Link>
               </div>
