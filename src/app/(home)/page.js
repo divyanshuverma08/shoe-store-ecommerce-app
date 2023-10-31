@@ -4,7 +4,7 @@ import Featured from "@/components/featured/featured";
 import Categories from "@/components/categories/categories";
 import Reviews from "@/components/reviews/reviews";
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 43200
 
 export default function Home() {
   return (
