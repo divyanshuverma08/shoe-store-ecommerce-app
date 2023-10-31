@@ -10,6 +10,8 @@
     position: relative;
     border-radius: 64px 0px 0px 0px;
     background-color: #ECEEF0;
+
+    cursor: pointer;
 }
 
 .categoryOne .categoryImageContainer img{
@@ -20,6 +22,8 @@
     flex: 1;
     position: relative;
     background-color: #F6F6F6;
+
+    cursor: pointer;
 }
 
 .categoryImageContainer{

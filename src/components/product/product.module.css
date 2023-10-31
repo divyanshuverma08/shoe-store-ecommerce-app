@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 20px;
     width: 18vw;
+
+    cursor: pointer;
 }
 
 .product.grid{

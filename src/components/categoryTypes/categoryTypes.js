@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function CategoryTypes() {
   return (
     <div className={styles.categoryTypes}>
-      <div className={styles.categoryOne}>
+      <Link href="/products/?category=casual" className={styles.categoryOne}>
         <div className={styles.categoryImageContainer}>
           <Image
             className={styles.categoryImage}
@@ -20,7 +20,7 @@ export default function CategoryTypes() {
             <p>Casual</p>
             <p>Shoes</p>
           </div>
-          <Link href="/products/?category=casual" className={styles.categoryButton}>
+          <div className={styles.categoryButton}>
             <div className={styles.categoryButtonIcon}>
               <Image
                 className={styles.categoryIcon}
@@ -29,10 +29,10 @@ export default function CategoryTypes() {
                 alt="forward"
               />
             </div>
-          </Link>
+          </div>
         </div>
-      </div>
-      <div className={styles.categoryTwo}>
+      </Link>
+      <Link Link href="/products/?category=basketball" className={styles.categoryTwo}>
         <div className={styles.categoryImageContainer}>
           <Image
             className={styles.categoryImage}
@@ -46,7 +46,7 @@ export default function CategoryTypes() {
             <p>Basketball</p>
             <p>Shoes</p>
           </div>
-          <Link Link href="/products/?category=basketball" className={styles.categoryButton}>
+          <div className={styles.categoryButton}>
             <div className={styles.categoryButtonIcon}>
               <Image
                 className={styles.categoryIcon}
@@ -55,9 +55,9 @@ export default function CategoryTypes() {
                 alt="open"
               />
             </div>
-          </Link>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

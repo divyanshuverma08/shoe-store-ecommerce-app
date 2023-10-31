@@ -11,7 +11,7 @@ export default function Categories() {
           <h2>Categories</h2>
         </div>
         <div className={styles.headerRight}>
-          <button disabled className={styles.button}>
+          {/* <button disabled className={styles.button}>
             <div className={styles.buttonIcon}>
               <Image
                 className={styles.icon}
@@ -30,7 +30,7 @@ export default function Categories() {
                 alt="forward"
               />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
      <CategoryTypes />

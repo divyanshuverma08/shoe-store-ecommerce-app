@@ -59,6 +59,28 @@
     width: 55%;
 }
 
+.inputContainer{
+    width: 55%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inputContainer .sectionInput{
+    width: 100%;
+}
+
+.inputContainer p{
+    color: var(--neutrals-gray-9);
+    font-family: var(--font-inter);
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
 .emailUpdateContainer{
     display: flex;
     align-items: center;

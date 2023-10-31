@@ -55,7 +55,7 @@ export default function Reviews() {
       </div>
       <div className={styles.cards}>
         {mounted && width < 768 ? (
-          <ReviewCard />
+          <ReviewCard userImage={"/review/user-img1.jpeg"} productImage={"/review/review-img1.png"} />
         ) : (
           <>
             <ReviewCard userImage={"/review/user-img1.jpeg"} productImage={"/review/review-img1.png"}  />

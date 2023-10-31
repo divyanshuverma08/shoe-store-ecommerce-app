@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Product({slug,model,category,price,newRelease,grid,image}) {
   return (
-    <div className={`${styles.product} ${grid && styles.grid}`}>
+    <Link href={`/products/${slug}`} className={`${styles.product} ${grid && styles.grid}`}>
       <div className={styles.productImageContainer}>
         {newRelease && <div className={styles.newTag}>New</div>}
         <Image
@@ -19,9 +19,9 @@ export default function Product({slug,model,category,price,newRelease,grid,image
         <p>{model}</p>
         <p>{category}</p>
       </div>
-      <Link href={`/products/${slug}`} className={styles.productButton}>
+      <div className={styles.productButton}>
         VIEW PRODUCT - <span>₹{price}</span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }

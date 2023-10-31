@@ -22,7 +22,7 @@ export default function Profile() {
 
   const [hasPassword, setHasPassWord] = useState(false);
 
-  const [orders,setOrders] = useState(null);
+  const [orders, setOrders] = useState(null);
 
   const [socialAuth, setSocialAuth] = useState({
     google: "",
@@ -85,7 +85,7 @@ export default function Profile() {
       return;
     }
 
-    if(googleLink === "true"){
+    if (googleLink === "true") {
       toast.success("Google account linked successfully");
       router.replace("/profile");
       return;
@@ -97,24 +97,23 @@ export default function Profile() {
       return;
     }
 
-    if(facebookLink === "true"){
+    if (facebookLink === "true") {
       toast.success("Facebook account linked successfully");
       router.replace("/profile");
       return;
     }
 
-    if(payment === "true"){
+    if (payment === "true") {
       toast.success("Payment Successfull");
       router.replace("/profile");
       return;
     }
 
-    if(payment === "false"){
+    if (payment === "false") {
       toast.error("Payment failed");
       router.replace("/profile");
       return;
     }
-
   }, []);
 
   const updateStates = (response) => {
@@ -150,14 +149,14 @@ export default function Profile() {
 
   const getUserOrders = async () => {
     try {
-      const response = await order.getOrderByUser({id: user.id, auth: true})
+      const response = await order.getOrderByUser({ id: user.id, auth: true });
 
       setOrders(response.data);
     } catch (error) {
       const err = error.response?.data?.message || "Something went wrong...";
       toast.error(err);
     }
-  }
+  };
 
   const updateAccountInfo = async () => {
     try {
@@ -387,14 +386,20 @@ export default function Profile() {
                 onChange={handleChangePassword}
               />
             )}
-            <Input
-              name={"newPassword"}
-              className={styles.sectionInput}
-              placeholder={"New Password"}
-              type={"password"}
-              value={changePassword.newPassword}
-              onChange={handleChangePassword}
-            />
+            <div className={styles.inputContainer}>
+              <Input
+                name={"newPassword"}
+                className={styles.sectionInput}
+                placeholder={"New Password"}
+                type={"password"}
+                value={changePassword.newPassword}
+                onChange={handleChangePassword}
+              />
+              <p>
+                Minimum 8 characters with at least one uppercase, one lowercase,
+                one special character and a number
+              </p>
+            </div>
             <Input
               name={"confirmPassword"}
               className={styles.sectionInput}
@@ -457,7 +462,10 @@ export default function Profile() {
                     Unlink
                   </Link>
                 ) : (
-                  <Link href={`${environment.SERVER_URL}/api/v1/auth/facebook/link/user/${user?.id}`} className={styles.link}>
+                  <Link
+                    href={`${environment.SERVER_URL}/api/v1/auth/facebook/link/user/${user?.id}`}
+                    className={styles.link}
+                  >
                     Link
                   </Link>
                 )}
@@ -467,7 +475,16 @@ export default function Profile() {
         </div>
       </div>
       <div className={styles.orderDetails}>
-        {orders?.map((order)=><PreviousOrder key={order._id} id={order._id} items={order.items} deliveryType={order.deliveryType} amount={order.amount} paymentStatus={order.paymentStatus} />)}
+        {orders?.map((order) => (
+          <PreviousOrder
+            key={order._id}
+            id={order._id}
+            items={order.items}
+            deliveryType={order.deliveryType}
+            amount={order.amount}
+            paymentStatus={order.paymentStatus}
+          />
+        ))}
       </div>
     </div>
   );

@@ -156,6 +156,9 @@ export default function Filters({ params, modal, onClose }) {
     });
   };
 
+  // implemented to update category filter when navigating to /products?category= using footer when on similar page.
+  // because state of filters where maintained as component didn't unmount. it will not again set state at inititalization because component is still mounted
+  // So to update the category filter when the params changes due to external component I use this approach
   useEffect(()=>{
     setCategory(params.category || "");
   },[params.category])
