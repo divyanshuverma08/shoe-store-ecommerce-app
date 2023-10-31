@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./sidebar.module.css";
 import axios from "axios";
@@ -8,10 +8,10 @@ import { logout } from "@/redux/authSlice";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { environment } from "@/lib/environment";
-import { headers } from "../../../next.config";
 
 export default function Sidebar() {
   const user = useSelector((state) => state.auth.currentUser);
+  const [mounted,setMounted] = useState(false);
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -68,6 +68,10 @@ export default function Sidebar() {
       console.log(error);
     }
   };
+
+  useEffect(()=>{
+    setMounted(true);
+  },[])
 
   return (
     <div className={styles.sidebar}>
@@ -150,7 +154,7 @@ export default function Sidebar() {
               <Image src="/arrow_down.svg" width={25} height={25} alt="men" />
             </div>
           </div>
-          {!user ? (
+          {mounted && !user ? (
             <div
               onClick={() => {
                 setOpen(false);

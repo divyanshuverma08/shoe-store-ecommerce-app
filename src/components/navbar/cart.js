@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { useSelector } from "react-redux";
-import styles from "./navbar.module.css"
+import styles from "./navbar.module.css";
 
 export default function Cart() {
-    const cart = useSelector((state) => state.cart);
+  const [mounted, setMounted] = useState();
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
-    <Link href="/cart" className={styles.cart}>{cart?.quantity}</Link>
-  )
+    <Link href="/cart" className={styles.cart}>
+      {mounted && cart?.quantity}
+    </Link>
+  );
 }

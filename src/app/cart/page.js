@@ -8,27 +8,37 @@ import BagItem from "./components/bagItem";
 import OrderSummary from "@/components/orderSummary/orderSummary";
 import { products } from "@/lib/services/products";
 import { useDispatch, useSelector } from "react-redux";
-import { loadProduct, getTotalAmount, checkCartValidity } from "@/redux/cartSlice";
+import {
+  loadProduct,
+  getTotalAmount,
+  checkCartValidity,
+} from "@/redux/cartSlice";
 import toast from "react-hot-toast";
+import Loader from "@/components/loader/loader";
 
 export default function Cart() {
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
 
-  const [featured,setFeatured] = useState(null);
+  const [featured, setFeatured] = useState(null);
 
-  useEffect(() => {
-    if (cart) {
-      getCartProducts();
+  useEffect( () => {
+    async function fetchData(){
+      if (cart) {
+        await getCartProducts();
+      }
+      setIsLoading(false);
+      await getFeatured();
     }
-    getFeatured();
+    fetchData();
   }, []);
 
   const getCartProducts = async () => {
     let items = cart.products;
 
-    if(cart.products.length < 1){
+    if (cart.products.length < 1) {
       return;
     }
 
@@ -43,7 +53,7 @@ export default function Cart() {
           const size = product.data.sizes.find(
             ({ size }) => item.size === size
           );
-          
+
           dispatch(
             loadProduct({
               id: item.id,
@@ -54,7 +64,7 @@ export default function Cart() {
               color: product.data.color,
               price: product.data.price,
               availableStock: size.quantity,
-              image: product.data.images[0].imageUrl
+              image: product.data.images[0].imageUrl,
             })
           );
         })
@@ -62,18 +72,16 @@ export default function Cart() {
 
       dispatch(getTotalAmount());
       dispatch(checkCartValidity());
-
-    } catch(error) {
+    } catch (error) {
       const err = error.response?.data?.message || "Something went wrong...";
       toast.error(err);
     }
-
   };
 
   async function getFeatured() {
     try {
       const data = await products.getFeatured({ auth: false });
-  
+
       if (data) {
         setFeatured(data.data);
       }
@@ -95,34 +103,41 @@ export default function Cart() {
           <Link href="/checkout">Join us</Link> or <Link href="/">Sign-in</Link>
         </p>
       </div>
-      <div className={styles.cartMain}>
-        <div className={styles.bag}>
-          <div className={styles.bagHeader}>
-            <p className={styles.bagHeaderTitle}>Your Bag</p>
-            <p className={styles.bagHeaderContent}>
-              Items in your bag not reserved- check out now to make them yours.
-            </p>
-          </div>
-          <div className={styles.bagContent}>
-            {cart?.products.map((product, i) => (
-              <BagItem
-                key={`${product.id}${product.size}`}
-                id={product.id}
-                model={product.model}
-                category={product.category}
-                gender={product.gender}
-                color={product.color}
-                price={product.price}
-                size={product.size}
-                quantity={product.quantity}
-                availableStock={product.availableStock}
-                image={product.image}
-              />
-            ))}
-          </div>
+      {isLoading ? (
+        <div style={{ width: "min-content", margin: "50px auto" }}>
+          <Loader width="200" h color="#000" />
         </div>
-        <OrderSummary cart={true} />
-      </div>
+      ) : (
+        <div className={styles.cartMain}>
+          <div className={styles.bag}>
+            <div className={styles.bagHeader}>
+              <p className={styles.bagHeaderTitle}>Your Bag</p>
+              <p className={styles.bagHeaderContent}>
+                Items in your bag not reserved- check out now to make them
+                yours.
+              </p>
+            </div>
+            <div className={styles.bagContent}>
+              {cart?.products.map((product, i) => (
+                <BagItem
+                  key={`${product.id}${product.size}`}
+                  id={product.id}
+                  model={product.model}
+                  category={product.category}
+                  gender={product.gender}
+                  color={product.color}
+                  price={product.price}
+                  size={product.size}
+                  quantity={product.quantity}
+                  availableStock={product.availableStock}
+                  image={product.image}
+                />
+              ))}
+            </div>
+          </div>
+          <OrderSummary cart={true} />
+        </div>
+      )}
       <ProductsMayLike data={featured} />
     </div>
   );

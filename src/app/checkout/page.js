@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import styles from "./checkout.module.css";
-import OrderSummary from "@/components/orderSummary/orderSummary";
 import Link from "next/link";
 import Input from "@/components/input/input";
 import { products } from "@/lib/services/products";
@@ -16,8 +16,12 @@ import {
 import { order } from "../../lib/services/order";
 import toast from "react-hot-toast";
 
+const OrderSummary = dynamic(()=>import("@/components/orderSummary/orderSummary"),{ssr: false});
+
 export default function CheckOut() {
   const dispatch = useDispatch();
+
+  const [mounted,setMounted] = useState(false);
 
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.currentUser);
@@ -57,6 +61,8 @@ export default function CheckOut() {
         };
       });
     }
+
+    setMounted(true);
   }, []);
 
   const getCartProducts = async () => {
@@ -228,7 +234,7 @@ export default function CheckOut() {
   return (
     <div className={styles.checkout}>
       <div className={styles.checkoutDetails}>
-        {!user && (
+        {mounted && !user && (
           <Link className={styles.link} href="/login">
             Login and Checkout faster
           </Link>

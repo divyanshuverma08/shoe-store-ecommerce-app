@@ -1,14 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+const initialState = {
+  products: [],
+  quantity: 0,
+  totalAmount: 0,
+  valid: true,
+  deliveryType: "Standard"
+};
+
+const getFromLocalStorage = () => {
+  if (typeof window !== "undefined") {
+    const value = JSON.parse(localStorage.getItem("cart"));
+    return value || null;
+  }
+  return initialState;
+};
+
+const saveToLocalStorage = (state) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("cart",JSON.stringify(state));
+  }
+};
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    products: [],
-    quantity: 0,
-    totalAmount: 0,
-    valid: true,
-    deliveryType: "Standard"
-  },
+  initialState: getFromLocalStorage(),
   reducers: {
     addProduct: (state, action) => {
       const existingProduct = state.products.find(
@@ -23,6 +40,7 @@ const cartSlice = createSlice({
         state.products.push(action.payload);
       }
       state.quantity += 1;
+      saveToLocalStorage(state);
     },
     removeProduct: (state, action) => {
       const productIndex = state.products.findIndex(
@@ -35,6 +53,7 @@ const cartSlice = createSlice({
         state.quantity -= state.products[productIndex].quantity;
         state.products.splice(productIndex, 1);
       }
+      saveToLocalStorage(state);
     },
     changeProductQuantity: (state, action) => {
       const productIndex = state.products.findIndex(
@@ -49,6 +68,7 @@ const cartSlice = createSlice({
         state.quantity -= oldQuantity;
         state.quantity += action.payload.quantity;
       }
+      saveToLocalStorage(state);
     },
     loadProduct: (state, action) => {
       const existingProduct = state.products.find(
@@ -69,6 +89,7 @@ const cartSlice = createSlice({
         existingProduct.availableStock = availableStock;
         existingProduct.image = image;
       }
+      saveToLocalStorage(state);
     },
     getTotalAmount: (state) => {
       const { products } = state;
@@ -79,6 +100,7 @@ const cartSlice = createSlice({
       },0)
 
       state.totalAmount = totalAmount;
+      saveToLocalStorage(state);
     },
     checkCartValidity: (state) => {
       const { products } = state;
@@ -92,15 +114,18 @@ const cartSlice = createSlice({
       });
 
       state.valid = validity;
+      saveToLocalStorage(state);
     },
     selectDeliveryType: (state,action) => {
       state.deliveryType = action.payload;
+      saveToLocalStorage(state);
     },
     emptyCart: (state) => {
       state.products = [];
       state.quantity = 0;
       state.totalAmount = 0;
       state.deliveryType = "Standard";
+      saveToLocalStorage(state);
     },
   },
 });

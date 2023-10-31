@@ -69,8 +69,15 @@ export default function Profile() {
       router.push("/login");
       return;
     }
-    getUserInfo();
-    getUserOrders();
+
+    async function fetchData() {
+      const toastId = toast.loading("Loading...", { position: "top-left" });
+      await getUserInfo();
+      await getUserOrders();
+      toast.dismiss(toastId);
+    }
+
+    fetchData();
 
     const urlSearchString = window.location.search;
     const searchParams = new URLSearchParams(urlSearchString);

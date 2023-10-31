@@ -32,7 +32,7 @@ export default function CategoryTypes() {
           </div>
         </div>
       </Link>
-      <Link Link href="/products/?category=basketball" className={styles.categoryTwo}>
+      <Link href="/products/?category=basketball" className={styles.categoryTwo}>
         <div className={styles.categoryImageContainer}>
           <Image
             className={styles.categoryImage}
