@@ -42,13 +42,13 @@ export default function HeroImages() {
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 1)}
         >
-          <Image priority={true} className={styles.boxImage} src={image["image2"]} fill alt="show" />
+          <Image className={styles.boxImage} src={image["image2"]} fill alt="show" />
         </div>
         <div
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 2)}
         >
-          <Image priority={true} className={styles.boxImage} src={image["image3"]} fill alt="show" />
+          <Image className={styles.boxImage} src={image["image3"]} fill alt="show" />
         </div>
       </div>
     </>
