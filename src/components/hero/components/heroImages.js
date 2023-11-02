@@ -35,20 +35,20 @@ export default function HeroImages() {
   return (
     <>
       <div className={styles.imageContainer}>
-        <Image className={styles.image} src={image["image1"]} fill alt="show" />
+        <Image priority={true}  className={styles.image} src={image["image1"]} fill alt="show" />
       </div>
       <div className={styles.boxImages}>
         <div
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 1)}
         >
-          <Image className={styles.boxImage} src={image["image2"]} fill alt="show" />
+          <Image priority={true} className={styles.boxImage} src={image["image2"]} fill alt="show" />
         </div>
         <div
           className={styles.boxImageContaner}
           onClick={() => changeImage(0, 2)}
         >
-          <Image className={styles.boxImage} src={image["image3"]} fill alt="show" />
+          <Image priority={true} className={styles.boxImage} src={image["image3"]} fill alt="show" />
         </div>
       </div>
     </>

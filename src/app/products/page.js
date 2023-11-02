@@ -44,6 +44,7 @@ export default async function Products({searchParams}) {
         </div>
         <Image
           quality={100}
+          priority={true}
           className={styles.headerImg}
           src="/products-header1.png"
           alt="30% off"

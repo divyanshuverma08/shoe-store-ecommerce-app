@@ -50,18 +50,18 @@ export default function ProductImages({ images }) {
           <>
             <div className={styles.productImageTop}>
               <div className={styles.image}>
-                <Image src={images[0].imageUrl} fill alt="product" />
+                <Image priority={true} src={images[0].imageUrl} fill alt="product" />
               </div>
               <div className={styles.image}>
-                <Image src={images[1].imageUrl} fill alt="product" />
+                <Image priority={true} src={images[1].imageUrl} fill alt="product" />
               </div>
             </div>
             <div className={styles.productImageBottom}>
               <div className={styles.image}>
-                <Image src={images[2].imageUrl} fill alt="product" />
+                <Image priority={true} src={images[2].imageUrl} fill alt="product" />
               </div>
               <div className={styles.image}>
-                <Image src={images[3].imageUrl} fill alt="product" />
+                <Image priority={true} src={images[3].imageUrl} fill alt="product" />
               </div>
             </div>
           </>
@@ -74,7 +74,7 @@ export default function ProductImages({ images }) {
           >
             {images.map((image, i) => (
               <div key={i}>
-                <img alt="product" src={image.imageUrl} />
+                <img loading="eager" alt="product" src={image.imageUrl} />
               </div>
             ))}
           </Carousel>

@@ -12,7 +12,7 @@ const initialState = {
 const getFromLocalStorage = () => {
   if (typeof window !== "undefined") {
     const value = JSON.parse(localStorage.getItem("cart"));
-    return value || null;
+    return value || initialState;
   }
   return initialState;
 };
