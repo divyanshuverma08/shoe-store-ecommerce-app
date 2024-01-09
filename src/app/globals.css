@@ -80,6 +80,7 @@ input::placeholder { font: inherit; }
 
 .wrapper{
   max-width: 1920px;
+  margin: 0 auto;
 }
 
 .green{
